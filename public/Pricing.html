@@ -1,0 +1,1076 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="en"><head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="Pricing">
+    <meta name="description" content="">
+    <title>Pricing</title>
+    <link rel="stylesheet" href="nicepage.css" media="screen">
+<link rel="stylesheet" href="Pricing.css" media="screen">
+    <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
+    <script class="u-script" type="text/javascript" src="nicepage.js" defer=""></script>
+    <meta name="generator" content="Nicepage 6.5.4, nicepage.com">
+    <link id="u-theme-google-font" rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+    
+    <style>#page-container {
+        display: flex;
+        justify-content: space-between;
+        margin-left: 0%;
+        margin-right: 15%;
+    }
+    #info p {
+     font-size: 14px;
+    }
+    #categories, .call-to-action {
+        text-align: center;
+    }
+    
+    #categories {
+     flex: 1;
+   padding: 10px;
+   border-right: 1px solid #ccc;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: center;
+    }
+    
+    .category-button, #book-now-button, .call-to-action button {
+        display: inline-block;
+        margin-bottom: 10px;
+        padding: 15px;
+        background-color: #574822;
+        border: none;
+        cursor: pointer;
+        width: 200px;
+        color: #fff;
+        font-size: 13px;
+    }
+    
+    #prices {
+        flex: 2;
+        padding: 10px;
+        opacity: 0;
+        transition: opacity 0.5s ease-in-out;
+        font-size: 12px;
+    }
+    
+    #info {
+        margin-bottom: 55px;
+        text-align: center;
+        margin-right: 18%;
+        margin-left: 18%;
+    }
+    
+    #book-now-button {
+        display: block;
+        margin: 10px auto;
+        padding: 15px;
+        background-color: #574822;
+        border: none;
+        cursor: pointer;
+        color: #fff;
+        width: 150px;
+    }
+    
+    .call-to-action {
+        width: 100%; 
+        margin: auto; 
+        text-align: center; 
+        padding: 20px; 
+        background-color: #f8f8f8; 
+        margin-top: 15px;
+    }
+    
+    .call-to-action h2 {
+        color: #333; 
+        margin-bottom: 0px;
+        font-size: 28px;
+    }
+    
+    .call-to-action p {
+        margin: 1em 15%;
+        font-size: 16px;
+    }
+    
+    .call-to-action button {
+        padding: 20px ; 
+        margin-top: 1px; 
+    }
+    .service-title {
+   font-size: 12px; /* change this to your preferred font size */
+}
+.service-description {
+   font-size: 12px; /* change this to your preferred font size */
+}
+.service-price {
+   font-size: 12px; /* change this to your preferred font size */
+}
+    .call-to-action button:hover {
+        background-color: #555; 
+    }
+    .call-to-action h2 {
+   font-size: 18px; /* adjust this value to your preferred size */
+}
+.call-to-action p {
+   font-size: 14px; /* adjust this value to your preferred size */
+}
+.call-to-action button {
+   font-size: 13px; /* adjust this value to your preferred size */
+}
+.containerone{
+           width: 900px;
+           margin: auto;
+           max-width: 90vw;
+           text-align: center;
+           padding-top: 10px;
+           transition: transform .5s;
+           position: relative;
+       }
+       svg{
+           width: 30px;
+       }
+       header{
+           display: flex;
+           justify-content: space-between;
+           align-items: center;
+           padding: 20px 0;
+       }
+       .icon-cart{
+           position: relative;
+       }
+       .icon-cart span{
+           position: absolute;
+           background-color: #574822;
+           width: 30px;
+           height: 30px;
+           display: flex;
+           justify-content: center;
+           align-items: center;
+           border-radius: 50%;
+           color: #fff;
+           top: 50%;
+           right: -20px;
+       }
+       .title{
+           font-size: xx-large;
+       }
+       .listProduct .item img{
+           width: 90%;
+           height: 50%;
+           
+       }
+       .listProduct{
+           display: grid;
+           grid-template-columns: repeat(4, 1fr);
+           gap: 20px;
+       }
+       .listProduct .item{
+           background-color: #EEEEE6;
+           padding: 20px;
+           border-radius: none;
+       }
+       .listProduct .item h2{
+           font-weight: 500;
+           font-size: small;
+       }
+       .listProduct .item .price{
+           letter-spacing: 7px;
+           font-size: small;
+       }
+       .listProduct .item button{
+           background-color: #574822;
+           color: #eee;
+           border: none;
+           padding: 5px 10px;
+           margin-top: 10px;
+           border-radius: none;
+           transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition for hover effect */
+       }
+       
+       .listProduct .item button:hover{
+           background-color: #6d5f47; /* Lighter brown for hover */
+           color: #ffffff; /* Optional: Change text color on hover */
+           cursor: pointer; /* Change cursor to indicate clickable item */
+       }
+       
+       /* cart */
+       .cartTab{
+           width: 400px;
+           background-color: #353432;
+           color: #eee;
+           position: fixed;
+           top: 0;
+           right: -400px;
+           bottom: 0;
+           display: grid;
+           grid-template-rows: 70px 1fr 70px;
+           transition: .5s;
+           font-size: small;
+       }
+       body.showCart .cartTab{
+           right: 0;
+       }
+       body.showCart .containerone{
+           transform: translateX(-250px);
+       }
+       .cartTab .total {
+           display: flex;
+           justify-content: space-between;
+           padding: 0 20px;
+           font-size: medium;
+           border-top: 1px solid #eee;
+           background-color: #353432; /* Match the cart's background color */
+           color: #fff; /* Match the text color for contrast */
+       }
+       
+       .cartTab .total span {
+           color: #fff; 
+       }
+       
+       .cartTab h1{
+           padding: 20px;
+           margin: 0;
+           font-weight: 100;
+           font-size: 28px;
+       }
+       .cartTab .btn{
+           display: grid;
+           grid-template-columns: repeat(2, 1fr);
+       }
+       .cartTab button{
+           background-color: #574822;
+           border: none;
+           font-family: Poppins;
+           font-weight: 500;
+           cursor: pointer;
+           color: #fff;
+           height: 50px;
+       }
+       .cartTab .close{
+           background-color: #eee;
+           color: #000;
+       }
+       .listCart .item img{
+           width: 100%;
+       }
+       .listCart .item{
+           display: grid;
+           grid-template-columns: 70px 150px 50px 1fr;
+           gap: 10px;
+           text-align: center;
+           align-items: center;
+           margin-left: 10px;
+       }
+       .listCart .quantity span{
+           display: inline-block;
+           width: 25px;
+           height: 25px;
+           background-color: #eee;
+           border-radius: 50%;
+           color: #574822;
+           cursor: pointer;
+       }
+       .listCart .quantity span:nth-child(2){
+           background-color: transparent;
+           color: #eee;
+           cursor: auto;
+       }
+       .listCart .item:nth-child(even){
+           background-color: #eee1;
+       }
+       .listCart{
+           overflow: auto;
+       }
+       .listCart::-webkit-scrollbar{
+           width: 0;
+       }
+       @media only screen and (max-width: 992px) {
+           .listProduct{
+               grid-template-columns: repeat(3, 1fr);
+           }
+       }
+       
+       
+       /* mobile */
+       @media only screen and (max-width: 768px) {
+           .listProduct{
+               grid-template-columns: repeat(2, 1fr);
+           }
+       }
+       
+       .listOfficeProduct .item img{
+           width: 90%;
+           height: 40%;
+       }
+       
+       .listOfficeProduct{
+           display: grid;
+           grid-template-columns: repeat(4, 1fr);
+           gap: 20px;
+       }
+       
+       .listOfficeProduct .item{
+           background-color: #EEEEE6;
+           padding: 20px;
+           border-radius: none;
+       }
+       
+       .listOfficeProduct .item h2{
+           font-weight: 500;
+           font-size: small;
+       }
+       
+       .listOfficeProduct .item .price{
+           letter-spacing: 7px;
+           font-size: small;
+       }
+       
+       .listOfficeProduct .item button{
+           background-color: #574822;
+           color: #eee;
+           border: none;
+           padding: 5px 10px;
+           margin-top: 10px;
+           border-radius: none;
+           transition: background-color 0.3s ease, color 0.3s ease;
+       }
+       
+       .listOfficeProduct .item button:hover{
+           background-color: #6d5f47; 
+           color: #ffffff; 
+           cursor: pointer; 
+       }
+       
+       @media only screen and (max-width: 992px) {
+           .listOfficeProduct{
+               grid-template-columns: repeat(3, 1fr);
+           }
+       }
+       
+       @media only screen and (max-width: 768px) {
+           .listOfficeProduct{
+               grid-template-columns: repeat(2, 1fr);
+           }
+       }
+       
+       .listDryCleaning .item img,
+       .listExtras .item img {
+           width: 90%;
+           height: 50%;
+       }
+       .listDryCleaning,
+       .listExtras {
+           display: grid;
+           grid-template-columns: repeat(4, 1fr);
+           gap: 20px;
+       }
+       .listDryCleaning .item,
+       .listExtras .item {
+           background-color: #EEEEE6;
+           padding: 20px;
+           border-radius: none;
+       }
+       .listDryCleaning .item h2,
+       .listExtras .item h2 {
+           font-weight: 500;
+           font-size: small;
+       }
+       .listDryCleaning .item .price,
+       .listExtras .item .price {
+           letter-spacing: 7px;
+           font-size: small;
+       }
+       .listDryCleaning .item button,
+       .listExtras .item button {
+           background-color: #574822;
+           color: #eee;
+           border: none;
+           padding: 5px 10px;
+           margin-top: 10px;
+           border-radius: none;
+           transition: background-color 0.3s ease, color 0.3s ease;
+       }
+       .listDryCleaning .item button:hover,
+       .listExtras .item button:hover {
+           background-color: #6d5f47;
+           color: #ffffff;
+           cursor: pointer;
+       }
+       
+       @media only screen and (max-width: 992px) {
+           .listProduct, .listOfficeProduct, .listDryCleaning, .listExtras{
+               grid-template-columns: repeat(3, 1fr);
+           }
+       }
+       
+       @media only screen and (max-width: 768px) {
+           .listProduct, .listOfficeProduct, .listDryCleaning, .listExtras {
+               grid-template-columns: repeat(2, 1fr);
+           }
+       }
+        /* cartsummary */
+/* Modal Overlay */
+.modal {
+   display: none; /* Use flexbox for centering */
+   align-items: center; /* Center vertically */
+   justify-content: center; /* Center horizontally */
+   position: fixed; /* Stay in place */
+   z-index: 100; /* Sit on top */
+   left: 0;
+   top: 0;
+   width: 100%; /* Full width */
+   height: 100%; /* Full height */
+   overflow: auto; /* Enable scroll if needed */
+   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+   padding: 20px;
+}
+
+/* Modal Content */
+.modal-content {
+   background-color: #fff;
+   padding: 20px;
+   border-radius: 4px;
+   width: auto; /* Allows the modal to size according to its content */
+   max-width: 600px; /* Max width to ensure it doesn't get too large */
+   margin: 0 20px; /* Margin on the sides for smaller screens */
+   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+}
+
+/* Close Button */
+.close-button {
+   float: right;
+   font-size: 1.5em;
+   font-weight: bold;
+   cursor: pointer;
+}
+
+/* Checkout Title */
+.modal-content h2 {
+   font-size: 2em; /* Larger font size */
+   color: #333; /* Dark gray color */
+   text-align:center;
+   margin-bottom: 20px; /* Spacing after title */
+   border-bottom: 1px solid #eaeaea;
+   padding-bottom: 10px;
+}
+
+/* Cart Summary Styles */
+#cartSummary {
+   margin-bottom: 30px; /* Spacing before the form */
+   text-align: left;
+}
+
+.checkout-item {
+   display: flex;
+   align-items: center;
+   margin-bottom: 10px;
+   font-size: 0.9em; /* Smaller font size for item details */
+}
+
+.checkout-item-image {
+   width: 64px; /* Thumbnail size */
+   height: 64px;
+   margin-right: 20px;
+   object-fit: cover;
+   border-radius: 4px;
+}
+
+.checkout-item-title,
+.checkout-item-quantity,
+.checkout-item-price,
+.checkout-item-total {
+   margin: 0;
+}
+
+/* Form Group Styles */
+.form-group {
+   margin-bottom: 1em;
+}
+
+.form-group label {
+   display: block;
+   margin-bottom: .5em;
+   color: #333; /* Dark gray color */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"]  {
+   width: 90%;
+   padding: 6px;
+   margin-bottom: 10px; /* Space between input fields */
+   border: 1px solid #eaeaea;
+   border-radius: 4px;
+}
+
+/* Send Button */
+#sendOrder {
+   background-color: #574822; /* Dark brown color */
+   color: white;
+   padding: 10px 10px;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 1em;
+   width: 30%; /* Full width */
+   box-sizing: border-box; /* Border and padding included in width */
+}
+
+#sendOrder:hover {
+   background-color: #6d5f47; /* Lighter brown color */
+}
+
+
+/* Responsive Styles for Modal */
+@media screen and (max-width: 768px) {
+   .modal-content {
+       width: 80%; /* More width on smaller screens */
+   }
+}
+</style>
+    
+    
+    <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/DORADACLEANERS2.png",
+		"sameAs": [
+				"https://www.instagram.com/dorada.cleaners/",
+				"https://wa.me/+48729296383"
+		]
+}</script>
+    <meta name="theme-color" content="#478ac9">
+    <meta property="og:title" content="Pricing">
+    <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-xxl-mode" data-lang="en"><header class="u-clearfix u-custom-color-3 u-header u-header" id="sec-c5af"><div class="u-clearfix u-sheet u-sheet-1">
+        <nav class="u-align-right u-hidden-lg u-hidden-sm u-hidden-xl u-hidden-xxl u-menu u-menu-one-level u-offcanvas u-menu-1">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-698a"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="svg-698a" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-1"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Home.html" style="padding: 10px 14px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Pricing.html" style="padding: 10px 14px;">Pricing</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Gallery.html" style="padding: 10px 14px;">Gallery</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="About.html" style="padding: 10px 14px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Contact.html" style="padding: 10px 14px;">Contact</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-2"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Pricing.html">Pricing</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Gallery.html">Gallery</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.html">Contact</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+        <nav class="u-align-right u-hidden-md u-hidden-sm u-hidden-xs u-menu u-menu-one-level u-offcanvas u-menu-2">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#menu-hamburger"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="menu-hamburger" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-3"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Home.html" style="padding: 10px 14px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Pricing.html" style="padding: 10px 14px;">Pricing</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Gallery.html" style="padding: 10px 14px;">Gallery</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-4"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Pricing.html">Pricing</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Gallery.html">Gallery</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+        <a href="Home.html" class="u-image u-logo u-image-1" data-image-width="1080" data-image-height="1350" title="Home">
+          <img src="images/DORADACLEANERS2.png" class="u-logo-image u-logo-image-1">
+        </a>
+        <nav class="u-align-right u-hidden-md u-hidden-sm u-hidden-xs u-menu u-menu-one-level u-offcanvas u-menu-3">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-366f"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="svg-366f" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-5"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="About.html" style="padding: 10px 14px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Home.html#sec-bbea" style="padding: 10px 14px;">Contact</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-6"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html#sec-bbea">Contact</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+        <nav class="u-align-right u-hidden-lg u-hidden-xl u-hidden-xs u-hidden-xxl u-menu u-menu-one-level u-offcanvas u-menu-4">
+          <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
+            <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#" style="padding: 8px; font-size: calc(1em + 16px);">
+              <svg class="u-svg-link" viewBox="0 0 24 24"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#svg-dde8"></use></svg>
+              <svg class="u-svg-content" version="1.1" id="svg-dde8" viewBox="0 0 16 16" x="0px" y="0px" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns="http://www.w3.org/2000/svg"><g><rect y="1" width="16" height="2"></rect><rect y="7" width="16" height="2"></rect><rect y="13" width="16" height="2"></rect>
+</g></svg>
+            </a>
+          </div>
+          <div class="u-custom-menu u-nav-container">
+            <ul class="u-nav u-unstyled u-nav-7"><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Home.html" style="padding: 10px 14px;">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Pricing.html" style="padding: 10px 14px;">Pricing</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Gallery.html" style="padding: 10px 14px;">Gallery</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="About.html" style="padding: 10px 14px;">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link u-text-active-white u-text-hover-white" href="Contact.html" style="padding: 10px 6px 10px 14px;">Contact</a>
+</li></ul>
+          </div>
+          <div class="u-custom-menu u-nav-container-collapse">
+            <div class="u-black u-container-style u-inner-container-layout u-opacity u-opacity-95 u-sidenav">
+              <div class="u-inner-container-layout u-sidenav-overflow">
+                <div class="u-menu-close"></div>
+                <ul class="u-align-center u-nav u-popupmenu-items u-unstyled u-nav-8"><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Home.html">Home</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Pricing.html">Pricing</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Gallery.html">Gallery</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="About.html">About</a>
+</li><li class="u-nav-item"><a class="u-button-style u-nav-link" href="Contact.html">Contact</a>
+</li></ul>
+              </div>
+            </div>
+            <div class="u-black u-menu-overlay u-opacity u-opacity-70"></div>
+          </div>
+        </nav>
+      </div></header>
+    <section class="u-clearfix u-image u-section-1" id="sec-8264" data-image-width="5940" data-image-height="3960" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <h1 class="u-text u-text-default u-text-white u-text-1">Pricing</h1>
+      </div>
+    </section>
+    <section class="u-clearfix u-section-2" id="sec-f004">
+      <div class="u-clearfix u-sheet u-sheet-1">
+        <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
+         
+<div class="containerone">
+  <header>
+      <div class="title">Apartment Cleaning List</div>
+      <div class="icon-cart">
+          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
+          </svg>
+          <span>0</span>
+      </div>
+  </header>
+  <div class="listProduct">
+      <!-- Products will be added here by JavaScript -->
+  </div>
+</div>
+
+<div class="containerone">
+  <header>
+      <div class="title">House Cleaning List</div>
+  </header>
+  <div class="listOfficeProduct">
+      <!-- Office cleaning products will be added here dynamically -->
+  </div>
+</div>
+<div class="containerone">
+  <header>
+      <div class="title">Dry Cleaning List</div>
+  </header>
+  <div class="listDryCleaning">
+      <!-- Dry cleaning products will be added here dynamically -->
+  </div>
+</div>
+
+<!-- Extras Section -->
+<div class="containerone">
+  <header>
+      <div class="title">Extras List</div>
+  </header>
+  <div class="listExtras">
+      <!-- Extra products will be added here dynamically -->
+  </div>
+</div>
+
+<div class="cartTab">
+  <h1>Selected Products</h1>
+  <div class="listCart">
+      <!-- Cart items will be listed here -->
+  </div>
+  <div class="total">Total: PLN<span id="totalPrice">0</span></div>
+  <div class="btn">
+      <button class="close">CLOSE</button>
+      <button class="checkOut">SUBMIT</button>
+  </div>
+</div>
+
+<!-- Modal for Checkout Form -->
+<div id="checkoutModal" class="modal">
+  <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Order summary</h2>
+      <div id="cartSummary">
+          <!-- Cart items summary will be injected here -->
+      </div>
+      <form id="checkoutForm">
+          <div class="form-group">
+              <label for="name">Name:</label>
+              <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+              <label for="phone">Phone Number:</label>
+              <input type="tel" id="phone" name="phone" required>
+          </div>
+          <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required>
+          </div>
+          <div class="form-group">
+              <label for="address">Address:</label>
+              <input type="text" id="address" name="address" required>
+          </div>
+          <div class="form-group">
+              <label for="date">Date of Service:</label>
+              <input type="date" id="date" name="date" required>
+          </div>
+
+          
+          <div class="form-group">
+              <label for="time">Time of Service:</label>
+              <input type="time" id="time" name="time" required>
+          </div>
+
+          
+          <div class="form-group">
+              <label>
+                  <input type="checkbox" id="terms" name="terms" required>
+                  I agree to the <a href="link_to_terms_and_conditions" target="_blank">Terms and Conditions</a>.
+              </label>
+          </div>
+
+          <button type="button" id="sendOrder">SEND</button>
+      </form>
+  </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+<script>
+ document.addEventListener('DOMContentLoaded', function() {
+  let listProductHTML = document.querySelector('.listProduct');
+  let listOfficeProductHTML = document.querySelector('.listOfficeProduct');
+  let listDryCleaningHTML = document.querySelector('.listDryCleaning');
+  let listExtrasHTML = document.querySelector('.listExtras');
+  let listCartHTML = document.querySelector('.listCart');
+  let iconCart = document.querySelector('.icon-cart');
+  let iconCartSpan = document.querySelector('.icon-cart span');
+  let body = document.querySelector('body');
+  let closeCart = document.querySelector('.close');
+  let products = [];
+  let cart = [];
+  let summary;
+
+  iconCart.addEventListener('click', () => {
+      body.classList.toggle('showCart');
+  });
+  closeCart.addEventListener('click', () => {
+      body.classList.toggle('showCart');
+  });
+
+  const addDataToHTML = () => {
+      if(products.length > 0) {
+          products.forEach(product => {
+              let newProduct = document.createElement('div');
+              newProduct.dataset.id = product.id;
+              newProduct.classList.add('item');
+              newProduct.innerHTML = 
+              `<img src="${product.image}" alt="">
+              <h2>${product.name}</h2>
+              <div class="price">PLN${product.price}</div>
+              <button class="addCart">Add To Cart</button>`;
+              if(product.category === "apartment") {
+                  listProductHTML.appendChild(newProduct);
+              } else if(product.category === "office") {
+                  listOfficeProductHTML.appendChild(newProduct);
+              } else if(product.category === "dryCleaning") {
+                  listDryCleaningHTML.appendChild(newProduct);
+              } else if(product.category === "extras") {
+                  listExtrasHTML.appendChild(newProduct);
+              }
+          });
+      }
+  };
+
+  // Populating the products list
+  // Assuming 'products.json' is your products data file
+  fetch('products.json')
+      .then(response => response.json())
+      .then(data => {
+          products = data;
+          addDataToHTML();
+
+          if(localStorage.getItem('cart')){
+              cart = JSON.parse(localStorage.getItem('cart'));
+              addCartToHTML();
+          }
+      });
+
+  document.querySelectorAll('.listProduct, .listOfficeProduct, .listDryCleaning, .listExtras').forEach(list => {
+      list.addEventListener('click', (event) => {
+          let positionClick = event.target;
+          if(positionClick.classList.contains('addCart')){
+              let id_product = positionClick.parentElement.dataset.id;
+              addToCart(id_product);
+          }
+      });
+  });
+
+  const addToCart = (product_id) => {
+      let positionThisProductInCart = cart.findIndex((value) => value.product_id == product_id);
+
+      if(positionThisProductInCart < 0){
+          cart.push({
+              product_id: product_id,
+              quantity: 1
+          });
+      }else{
+          cart[positionThisProductInCart].quantity++;
+      }
+
+      addCartToHTML();
+      addCartToMemory();
+  };
+
+  const addCartToMemory = () => {
+      localStorage.setItem('cart', JSON.stringify(cart));
+  };
+
+  const addCartToHTML = () => {
+      listCartHTML.innerHTML = '';
+      let totalQuantity = 0;
+      let grandTotalPrice = 0;
+
+      if(cart.length > 0){
+          cart.forEach(item => {
+              totalQuantity += item.quantity;
+
+              let positionProduct = products.findIndex((value) => value.id == item.product_id);
+              if(positionProduct < 0) return;
+
+              let productInfo = products[positionProduct];
+              let itemTotalPrice = productInfo.price * item.quantity;
+              grandTotalPrice += itemTotalPrice;
+
+              let newItem = document.createElement('div');
+              newItem.classList.add('item');
+              newItem.dataset.id = item.product_id;
+              newItem.innerHTML = `
+              <div class="image">
+                  <img src="${productInfo.image}" alt="${productInfo.name}">
+              </div>
+              <div class="name">${productInfo.name}</div>
+              <div class="totalPrice">PLN${itemTotalPrice.toFixed(2)}</div>
+              <div class="quantity">
+                  <button class="minus">-</button>
+                  <span>${item.quantity}</span>
+                  <button class="plus">+</button>
+              </div>`;
+              listCartHTML.appendChild(newItem);
+          });
+      }
+
+      iconCartSpan.innerText = totalQuantity;
+      document.getElementById('totalPrice').innerText = grandTotalPrice.toFixed(2);
+  };
+
+  listCartHTML.addEventListener('click', (event) => {
+      let positionClick = event.target;
+      if(positionClick.classList.contains('minus') || positionClick.classList.contains('plus')){
+          let product_id = positionClick.closest('.item').dataset.id;
+          let type = positionClick.classList.contains('plus') ? 'plus' : 'minus';
+          changeQuantityCart(product_id, type);
+      }
+  });
+
+  const changeQuantityCart = (product_id, type) => {
+      let positionItemInCart = cart.findIndex((value) => value.product_id == product_id);
+      if(positionItemInCart >= 0){
+          if(type === 'plus'){
+              cart[positionItemInCart].quantity++;
+          } else {
+              cart[positionItemInCart].quantity--;
+              if(cart[positionItemInCart].quantity <= 0) cart.splice(positionItemInCart, 1);
+          }
+      }
+      addCartToHTML();
+      addCartToMemory();
+  };
+
+  // Checkout Modal and Form
+  document.querySelector('.checkOut').addEventListener('click', openCheckoutModal);
+  document.querySelector('.close-button').addEventListener('click', closeCheckoutModal);
+
+
+  document.getElementById('sendOrder').addEventListener('click', () => {
+  const name = document.getElementById('name').value;
+  const phone = document.getElementById('phone').value;
+  const email = document.getElementById('email').value;
+  const address = document.getElementById('address').value;
+  const date = document.getElementById('date').value;
+  const time = document.getElementById('time').value;
+
+  // Dynamically collect cart items
+  const cartItemsElements = document.querySelectorAll('.cart-item');
+  const cartItems = Array.from(cartItemsElements).map(item => {
+      const itemName = item.querySelector('p:nth-child(1)').innerText.replace('Name: ', '');
+      const quantity = parseInt(item.querySelector('p:nth-child(2)').innerText.replace('Quantity: ', ''), 10);
+      const price = parseFloat(item.querySelector('p:nth-child(3)').innerText.replace('Price: PLN', ''));
+      const total = parseFloat(item.querySelector('p:nth-child(4)').innerText.replace('Total: PLN', ''));
+      return { name: itemName, quantity, price, total };
+  });
+
+  // Construct summary from cart items
+  const summary = cartItems.map(item => `${item.quantity}x ${item.name} at PLN${item.price} each, Total: PLN${item.total}`).join('; ');
+
+  const orderDetails = {
+      personalDetails: {
+          name,
+          phone,
+          email,
+          address,
+          date,
+          time
+      },
+      cartItems
+  };
+  axios.post('http://localhost:8000/api/orders', orderDetails)
+      .then(response => {
+          console.log('Order submitted successfully');
+          closeCheckoutModal();
+      })
+      .catch(error => {
+          console.error('There was an error submitting the order', error);
+      });
+});
+
+
+
+  document.getElementById('checkoutForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      // Handle the form submission here
+  });
+
+  function openCheckoutModal() {
+      document.getElementById('checkoutModal').style.display = 'block';
+      populateCartSummary();
+  }
+
+  function closeCheckoutModal() {
+      document.getElementById('checkoutModal').style.display = 'none';
+  }
+
+  function populateCartSummary() {
+      const cartSummaryDiv = document.getElementById('cartSummary');
+      cartSummaryDiv.innerHTML = ''; // Clear current summary
+      cart.forEach(item => {
+          const product = products.find(p => p.id == item.product_id);
+          if (!product) return; // Skip if product not found
+          const itemHtml = `
+              <div class="cart-item">
+                  <p>Name: ${product.name}</p>
+                  <p>Quantity: ${item.quantity}</p>
+                  <p>Price: PLN${product.price.toFixed(2)}</p>
+                  <p>Total: PLN${(item.quantity * product.price).toFixed(2)}</p>
+              </div>`;
+              summary += itemHtml;
+          cartSummaryDiv.innerHTML += itemHtml;
+      });
+  }
+
+});
+
+  </script>
+          <section class="call-to-action">
+            <h2>HOW TO GET IN TOUCH WITH US?</h2>
+            <br>
+            <br>
+            <p>Schedule a service with Dorada Cleaning by dialing <strong>+48 729 296 383</strong>. We are eager to offer you comprehensive details about our services. Feel free to capitalize on our competitive rates! Serving all major London areas, no task is beyond our capacity, regardless of its size. We look forward to making your space a happier and cleaner environment!
+            </p>
+            <br>
+            <br>
+            <button onclick="location.href='Requestquote.html'">REQUEST QUOTE</button>
+          </section>
+          <p></p>
+        </div>
+      </div>
+    </section>
+    
+    
+    
+    <footer class="u-clearfix u-custom-color-3 u-footer" id="sec-d5f8"><div class="u-clearfix u-sheet u-sheet-1">
+        <div class="data-layout-selected u-clearfix u-expanded-width u-gutter-30 u-layout-wrap u-layout-wrap-1">
+          <div class="u-gutter-0 u-layout">
+            <div class="u-layout-row">
+              <div class="u-align-left u-container-style u-layout-cell u-left-cell u-size-30 u-layout-cell-1">
+                <div class="u-container-layout u-container-layout-1"><!--position-->
+                  <div data-position="" class="u-position u-position-1"><!--block-->
+                    <div class="u-block">
+                      <div class="u-block-container u-clearfix"><!--block_header-->
+                        <h5 class="u-block-header u-text u-text-1"><!--block_header_content--> Contact:<br>
+                          <br><!--/block_header_content-->
+                        </h5><!--/block_header--><!--block_content-->
+                        <div class="u-block-content u-text"><!--block_content_content--> +48 729 296 383<br>info@dinastiadorada.com.pl<br><!--/block_content_content-->
+                        </div><!--/block_content-->
+                      </div>
+                    </div><!--/block-->
+                  </div><!--/position-->
+                  <div class="u-social-icons u-spacing-10 u-social-icons-1">
+                    <a class="u-social-url" title="instagram" target="_blank" href="https://www.instagram.com/dorada.cleaners/"><span class="u-file-icon u-icon u-social-icon u-social-instagram u-text-white u-icon-1"><img src="images/87390-5594dd5e.png" alt=""></span>
+                    </a>
+                    <a class="u-social-url" target="_blank" data-type="Custom" title="Whatsapp" href="https://wa.me/+48729296383"><span class="u-file-icon u-icon u-social-custom u-social-icon u-text-white u-icon-2"><img src="images/1051374-1f561ebe.png" alt=""></span>
+                    </a>
+                    <a class="u-social-url" target="_blank" data-type="Custom" title="Custom" href=""><span class="u-file-icon u-icon u-social-custom u-social-icon u-text-white u-icon-3"><img src="images/3046120-157fab8c.png" alt=""></span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="u-container-style u-layout-cell u-size-30 u-layout-cell-2">
+                <div class="u-container-layout u-container-layout-2">
+                  <a href="https://nicepage.com" class="u-image u-logo u-image-1" data-image-width="1080" data-image-height="1350">
+                    <img src="images/DORADACLEANERS2.png" class="u-logo-image u-logo-image-1">
+                  </a>
+                  <p class="u-text u-text-default u-text-grey-30 u-text-3">
+                    <a class="u-active-none u-border-none u-btn u-button-link u-button-style u-hover-none u-none u-text-grey-30 u-btn-1" href="Privacy-policy.html">Privacy Policy</a>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div></footer>
+
+  
+</body></html>

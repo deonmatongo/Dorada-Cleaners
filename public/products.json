@@ -1,0 +1,342 @@
+[
+    {
+        "id": 1,
+        "category": "apartment",
+        "name": "Deep Cleaning: Room",
+        "price": 120,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 2,
+        "category": "apartment",
+        "name": "Deep Cleaning: Kitchen",
+        "price": 150,
+        "image": "images/kitchen1.png"
+    },
+    {
+        "id": 3,
+        "category": "apartment",
+        "name": "Deep Cleaning: Bathroom",
+        "price": 130,
+        "image": "images/bathroom1.png"
+    },
+    {
+        "id": 4,
+        "category": "apartment",
+        "name": "General Cleaning: Room",
+        "price": 60,
+        "image": "images/room2.png"
+    },
+    {
+        "id": 5,
+        "category": "apartment",
+        "name": "General Cleaning: Kitchen",
+        "price": 60,
+        "image": "images/kitchen2.png"
+    },
+    {
+        "id": 6,
+        "category": "apartment",
+        "name": "General Cleaning: Bathroom",
+        "price": 60,
+        "image": "images/bathroom2.png"
+    },
+    {
+        "id": 7,
+        "category": "apartment",
+        "name": "Post-Renovation (/SQM)",
+        "price": 8,
+        "image": "images/room1.png"
+    },
+    {
+        "_comment": "HOUSE CLENANING",
+        "id": 8,
+        "category": "apartment",
+        "name": "Window Cleaning",
+        "price": 30,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 9,
+        "category": "office",
+        "name": "House Deep Cleaning: Bedroom",
+        "price": 140,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 10,
+        "category": "office",
+        "name": "House Deep Cleaning: Bathroom",
+        "price": 150,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 11,
+        "category": "office",
+        "name": "House Deep Cleaning: Kitchen",
+        "price": 160,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 12,
+        "category": "office",
+        "name": "House General Cleaning: Room",
+        "price": 70,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 13,
+        "category": "office",
+        "name": "House General Cleaning: Kitchen",
+        "price": 70,
+        "image": "images/workspace1.png"
+    },
+    {
+        "id": 14,
+        "category": "office",
+        "name": "House General Cleaning: Bathroom",
+        "price": 70,
+        "image": "images/conference1.png"
+    },
+    {
+        "id": 15,
+        "category": "office",
+        "name": "House Window Cleaning",
+        "price": 40,
+        "image": "images/officeWindow.png"
+    },
+    {
+        "id": 16,
+        "category": "office",
+        "name": "Single Toilet  ",
+        "price": 50,
+        "image": "images/window3.png"
+    },
+    {
+        "id": 17,
+        "category": "dryCleaning",
+        "name": "Commercial Carpets (/SQM)",
+        "price": 8,
+        "image": "images/dryCleaningClothes.png"
+    },
+    {
+        "id": 18,
+        "category": "dryCleaning",
+        "name": "Residential Carpets (/SQM)",
+        "price": 8,
+        "image": "images/dryCleaningBeddings.png"
+    },
+    {
+        "id": 19,
+        "category": "dryCleaning",
+        "name": "Shaggy/Fluffy (SQM)",
+        "price": 12,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 20,
+        "category": "dryCleaning",
+        "name": "Dry Cleaning: Clothes",
+        "price": 60,
+        "image": "images/dryCleaningClothes.png"
+    },
+    {
+        "id": 21,
+        "category": "dryCleaning",
+        "name": "Arm-chair",
+        "price": 60,
+        "image": "images/dryCleaningBeddings.png"
+    },
+    {
+        "id": 22,
+        "category": "dryCleaning",
+        "name": "2 Seat Sofa + 2 pillows",
+        "price": 140,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 23,
+        "category": "dryCleaning",
+        "name": "3 Seat Sofa + 3 pillows",
+        "price": 160,
+        "image": "images/dryCleaningClothes.png"
+    },
+    {
+        "id": 24,
+        "category": "dryCleaning",
+        "name": "4 Seat Sofa + 4 pillows",
+        "price": 180,
+        "image": "images/dryCleaningBeddings.png"
+    },
+    {
+        "id": 25,
+        "category": "dryCleaning",
+        "name": "6 seat Sofa + 6 pillows",
+        "price": 200,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 26,
+        "category": "dryCleaning",
+        "name": "7 seat Sofa + 7 pillows",
+        "price": 220,
+        "image": "images/dryCleaningClothes.png"
+    },
+    {
+        "id": 27,
+        "category": "dryCleaning",
+        "name": "Small pillows (30x30)",
+        "price": 15,
+        "image": "images/dryCleaningBeddings.png"
+    },
+    {
+        "id": 28,
+        "category": "dryCleaning",
+        "name": "Medium pillows (50x50)",
+        "price": 25,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 29,
+        "category": "dryCleaning",
+        "name": "Large pillosws (70x70)",
+        "price": 35,
+        "image": "images/dryCleaningClothes.png"
+    },
+    {
+        "id": 30,
+        "category": "dryCleaning",
+        "name": "Office Chairs",
+        "price": 30,
+        "image": "images/dryCleaningBeddings.png"
+    },
+    {
+        "id": 31,
+        "category": "dryCleaning",
+        "name": "Single Mattress",
+        "price": 120,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 32,
+        "category": "dryCleaning",
+        "name": "Double Mattress",
+        "price": 220,
+        "image": "images/dryCleaningClothes.png"
+    },
+    {
+        "id": 33,
+        "category": "dryCleaning",
+        "name": "King Size Mattress",
+        "price": 290,
+        "image": "images/dryCleaningBeddings.png"
+    },
+    {
+        "id": 34,
+        "category": "dryCleaning",
+        "name": "Single Upholstered Headboard",
+        "price": 70,
+        "image": "images/room1.png"
+    },
+    {
+        "id": 35,
+        "category": "dryCleaning",
+        "name": "Double Upholstered Headboard",
+        "price": 140,
+        "image": "images/room1.png"
+    },
+ 
+    {
+        "id": 36,
+        "category": "extras",
+        "name": "Washing & Changing Linen(/room)",
+        "price": 50,
+        "image": "images/extraWindowCleaning.png"
+    },
+    {
+        "id": 37,
+        "category": "extras",
+        "name": "Balcony (/SQM)",
+        "price": 7,
+        "image": "images/extraCarpetCleaning.png"
+    },
+    {
+        "id": 38,
+        "category": "extras",
+        "name": "Cabinet Interiors(/HR)",
+        "price": 30,
+        "image": "images/kitchen1.png"
+    },
+    {
+        "id": 39,
+        "category": "extras",
+        "name": "Mold Removal(/HR)",
+        "price": 70,
+        "image": "images/extraCarpetCleaning.png"
+    },
+    {
+        "id": 40,
+        "category": "extras",
+        "name": "Plumbing fixtures and drain(/HR)",
+        "price": 30,
+        "image": "images/kitchen1.png"
+    },
+    {
+        "id": 41,
+        "category": "extras",
+        "name": "Washing machine & dryer Cleaning(/HR)",
+        "price": 30,
+        "image": "images/extraCarpetCleaning.png"
+    },
+    {
+        "id": 42,
+        "category": "extras",
+        "name": "Degreasing hood(/HR)",
+        "price": 30,
+        "image": "images/kitchen1.png"
+    },
+    {
+        "id": 43,
+        "category": "extras",
+        "name": "Microwave interior",
+        "price": 30,
+        "image": "images/extraCarpetCleaning.png"
+    },
+    {
+        "id": 44,
+        "category": "extras",
+        "name": "Oven Interior",
+        "price": 50,
+        "image": "images/kitchen1.png"
+    },
+    {
+        "id": 45,
+        "category": "extras",
+        "name": "Refrigerator Interior",
+        "price": 50,
+        "image": "images/extraCarpetCleaning.png"
+    },
+    {
+        "id": 46,
+        "category": "extras",
+        "name": "Dishes (/HR)",
+        "price": 30,
+        "image": "images/kitchen1.png"
+    },
+
+    {
+        "id": 47,
+        "category": "extras",
+        "name": "Paint & Glue Removal (/HR)",
+        "price": 40,
+        "image": "images/kitchen1.png"
+    },
+    {
+        "id": 48,
+        "category": "extras",
+        "name": "Wall Cleaning (/HR)",
+        "price": 50,
+        "image": "images/kitchen1.png"
+    }
+   
+]
