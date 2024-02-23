@@ -208,12 +208,65 @@ margin-right: 15%;
 #right-side-content img {
 width: 100%;
 height: auto;
-} </style>
+} 
+/* For tablets and devices with width less than 768px */
+@media screen and (max-width: 768px) {
+    form {
+        width: 90%; /* Increase width for smaller screens */
+        margin-left: 5%; /* Adjust margins for center alignment */
+        margin-right: 5%;
+        padding: 15px; /* Slightly reduce padding */
+    }
+    form input[type="text"], 
+    form input[type="tel"], 
+    form input[type="email"], 
+    form select, 
+    form input[type="date"], 
+    form input[type="time"], 
+    form textarea {
+        width: 80%; /* Increase field width for better usability */
+    }
+    #service {
+        width: 80%; /* Match other input widths */
+    }
+    #right-side-content {
+        position: relative; /* Change position for better flow */
+        width: 90%; /* Increase width to utilize space */
+        margin-top: 40px; /* Adjust spacing */
+        margin-right: 5%; /* Center align */
+        margin-left: 5%; /* Center align */
+    }
+}
+
+/* For smartphones and devices with width less than 480px */
+@media screen and (max-width: 480px) {
+    form {
+        width: 100%; /* Full width for very small screens */
+        margin: 0; /* Remove margins */
+        padding: 10px; /* Minimize padding */
+    }
+    form input[type="text"], 
+    form input[type="tel"], 
+    form input[type="email"], 
+    form select, 
+    form input[type="date"], 
+    form input[type="time"], 
+    form textarea {
+        width: 90%; /* Maximize field width */
+    }
+    #service {
+        width: 90%; /* Ensure consistency */
+    }
+    #right-side-content {
+        width: 100%; /* Full width for consistency */
+        margin-top: 20px; /* Reduce top margin */
+        margin-right: 0; /* Adjust for full width */
+        margin-left: 0; /* Adjust for full width */
+    }
+}
+</style>
           <p></p>
-          <div id="right-side-content">
-            <img src="images/pexels-tima-miroshnichenko-6197117.jpg" alt="description of image">
-            <p>Transforming Spaces, Creating Serenity: Welcome to Sparkling Horizon Cleaners. Unleash the Power of Cleanliness with Our Impeccable Services. From the Tiniest Detail to Grand Transformations, We Elevate Your Space. Sparkle, Shine, and Breathe in Freshness - Because Your Environment Matters. Book Your Journey to a Pristine Haven Today!</p>
-          </div>
+
           <form action="/submit" method="post">
             <label for="name">Your Name:</label>
             <br>
@@ -235,8 +288,8 @@ height: auto;
             <br>
             <select id="service" name="service" required="">
               <option value="">Please choose an option</option>
-              <option value="service1">General Cleaning Service </option>
-              <option value="service2">Deep Service 2</option><!-- Add more options as needed -->
+              <option value="service1">Office Cleaning Service </option>
+              <option value="service2">Restaurant Cleaning Service</option><!-- Add more options as needed -->
             </select>
             <br>
             <label for="date">Preferred Date:</label>
