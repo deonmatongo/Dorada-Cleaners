@@ -9,7 +9,9 @@ const path = require('path');
 const app = express();
 const port = 8000;
 
-app.use(cors());
+app.use(cors({
+    origin: 'http://dinastiadorada.com.pl'
+}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')), function(req, res, next) {
     console.log('Serving static files:', req.path);
