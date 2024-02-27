@@ -317,40 +317,33 @@ height: auto;
     
     <script>
       document.addEventListener("DOMContentLoaded", function() {
-          const form = document.querySelector('form');
-          
-          form.addEventListener('submit', function(e) {
-              e.preventDefault(); // Prevent the default form submission
-      
-              // Prepare form data for sending
-              const formData = new FormData(form);
-              
-              // Optional: Convert FormData to an object if necessary
-              const formDataObj = {};
-              formData.forEach((value, key) => { formDataObj[key] = value; });
-      
-              fetch('/submit', {
-  method: 'POST',
-  headers: {
-      'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(formDataObj),
-})
+  const form = document.querySelector('form');
 
-              .then(response => response.json()) // Parse JSON response
-              .then(data => {
-                  console.log(data);
-                  alert("Form submitted successfully!");
-                  // Optionally, clear the form or redirect the user
-                  // form.reset();
-                  // window.location.href = "thank_you_page.html"; // Redirect to a thank-you page
-              })
-              .catch(error => {
-                  console.error('Error:', error);
-                  alert("An error occurred while submitting the form.");
-              });
-          });
-      });
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+
+    const formData = new FormData(form);
+    const plainFormData = Object.fromEntries(formData.entries());
+    const formDataJsonString = JSON.stringify(plainFormData);
+
+    fetch('/submit', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: formDataJsonString,
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log(data);
+      // Handle success, maybe redirect or display a success message
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+      // Handle errors here
+    });
+  });
+});
       </script>
     
     <footer class="u-clearfix u-custom-color-3 u-footer" id="sec-d5f8"><div class="u-clearfix u-sheet u-sheet-1">

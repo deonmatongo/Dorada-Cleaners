@@ -10,7 +10,7 @@ const app = express();
 const port = 8000;
 
 app.use(cors({
-    origin: 'http://dinastiadorada.com.pl'
+    origin: ['http://dinastiadorada.com.pl', 'http://www.dinastiadorada.com.pl']
 }));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')), function(req, res, next) {
