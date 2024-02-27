@@ -5,6 +5,13 @@
     <meta name="keywords" content="Pricing">
     <meta name="description" content="">
     <title>requestquote</title>
+    <!-- Modal Structure -->
+<div id="orderSuccessModal" class="modal" style="display:none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4);">
+  <div class="modal-content" style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 450px;">
+    <span class="close" id="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold;">&times;</span>
+    <p>Quote submitted successfully!</p>
+  </div>
+</div>
     <link rel="stylesheet" href="nicepage.css" media="screen">
 <link rel="stylesheet" href="requestquote.css" media="screen">
     <script class="u-script" type="text/javascript" src="jquery.js" defer=""></script>
@@ -321,8 +328,39 @@ height: auto;
         </div>
       </div>
     </section>
-    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script>
+
+const requestQuote = {
+    name: 'John Doe',
+    phone: '1234567890',
+    email: 'johndoe@example.com',
+    postcode: '12345',
+    service: 'Cleaning Service',
+    date: '2024-02-27',
+    time: '14:00',
+    info: 'Additional information about the request.',
+    disclaimer: true // Assuming the user has accepted the disclaimer
+};
+
+
+axios.post('https://cleaners-104cddb3f5ef.herokuapp.com/submit', requestQuote)
+    .then(response => {
+        // Show modal on success
+        document.getElementById('orderSuccessModal').style.display = 'block';
+          
+          // Close Modal when clicking on close button
+          document.querySelector('.close').onclick = function() {
+              document.getElementById('orderSuccessModal').style.display = 'none';
+          }
+    })
+    .catch(error => {
+        console.error('There was an error submitting the quote', error);
+        // If you have a UI element to update on failure, do it here
+        // For example: document.getElementById('errorMessage').innerText = 'Error submitting quote.';
+    });
+
+
       document.addEventListener("DOMContentLoaded", function() {
   const form = document.querySelector('form');
 
