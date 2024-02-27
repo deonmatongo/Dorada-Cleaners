@@ -681,6 +681,15 @@
   </div>
 </div>
 
+<!-- Modal Structure -->
+<div id="orderSuccessModal" class="modal" style="display:none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgb(0,0,0); background-color: rgba(0,0,0,0.4);">
+    <div class="modal-content" style="background-color: #fefefe; margin: 15% auto; padding: 20px; border: 1px solid #888; width: 80%; max-width: 450px;">
+      <span class="close" style="color: #aaa; float: right; font-size: 28px; font-weight: bold;">&times;</span>
+      <p>Your order has been submitted successfully!</p>
+    </div>
+  </div>
+  
+
 <!-- Modal for Checkout Form -->
 <div id="checkoutModal" class="modal">
   <div class="modal-content">
@@ -920,17 +929,32 @@
       },
       cartItems
   };
+
   axios.post('https://cleaners-104cddb3f5ef.herokuapp.com/api/orders', orderDetails)
       .then(response => {
           console.log('Order submitted successfully');
+          // Show modal on success
+          document.getElementById('orderSuccessModal').style.display = 'block';
+          
+          // Close Modal when clicking on close button
+          document.querySelector('.close').onclick = function() {
+              document.getElementById('orderSuccessModal').style.display = 'none';
+          }
+
           closeCheckoutModal();
       })
       .catch(error => {
           console.error('There was an error submitting the order', error);
       });
+
 });
 
-
+// Close Modal when clicking outside of the modal
+window.onclick = function(event) {
+  if (event.target == document.getElementById('orderSuccessModal')) {
+    document.getElementById('orderSuccessModal').style.display = 'none';
+  }
+}
 
   document.getElementById('checkoutForm').addEventListener('submit', function(event) {
       event.preventDefault();
