@@ -23,6 +23,10 @@ app.get('/request-quote', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'requestQuote.html'));
 });
 
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'Home.html'));
+});
+
 
 
 // Endpoint to handle form submission
