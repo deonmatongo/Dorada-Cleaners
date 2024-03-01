@@ -11,7 +11,7 @@ const port = process.env.PORT || 8000;
 
 
 app.use(cors({
-    origin: ['http://dinastiadorada.com.pl', 'http://www.dinastiadorada.com.pl', 'https://dorada-cleaners.vercel.app']
+    origin: ['http://dinastiadorada.com.pl', 'http://www.dinastiadorada.com.pl', 'dorada-cleaners.vercel.app']
 }));
 // app.use(cors());
 app.use(bodyParser.json());
