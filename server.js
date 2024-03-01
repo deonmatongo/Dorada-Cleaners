@@ -10,10 +10,10 @@ const app = express();
 const port = process.env.PORT || 8000;
 
 
-// app.use(cors({
-//     origin: ['http://dinastiadorada.com.pl', 'http://www.dinastiadorada.com.pl']
-// }));
-app.use(cors());
+app.use(cors({
+    origin: ['http://dinastiadorada.com.pl', 'http://www.dinastiadorada.com.pl', 'https://dorada-cleaners.vercel.app']
+}));
+// app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')), function(req, res, next) {
     console.log('Serving static files:', req.path);
