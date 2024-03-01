@@ -930,7 +930,8 @@
       cartItems
   };
 
-  axios.post('https://cleaners-104cddb3f5ef.herokuapp.com/api/orders', orderDetails)
+  // axios.post('https://cleaners-104cddb3f5ef.herokuapp.com/api/orders', orderDetails)
+  axios.post('https://dorada-cleaners.vercel.app/api/orders', orderDetails)
       .then(response => {
           console.log('Order submitted successfully');
           // Show modal on success
