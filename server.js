@@ -11,8 +11,23 @@ const port = process.env.PORT || 8000;
 
 
 app.use(cors({
-    origin: ['http://dinastiadorada.com.pl', 'http://www.dinastiadorada.com.pl', 'dorada-cleaners.vercel.app']
+    origin: [
+        'http://localhost:8000', // Add this line to allow requests from your local development server
+        'http://dinastiadorada.com.pl',
+        'http://www.dinastiadorada.com.pl',
+        'https://dorada-cleaners.vercel.app'
+    ],
+    credentials: true, // You might need this line if you're sending cookies or using session authentication
+    methods: ['GET', 'POST'], // Ensure you allow the HTTP methods you are using
 }));
+const corsOptions = {
+    origin: 'http://localhost:8000', // or use '*' to allow any origin - not recommended for production
+    methods: ['GET', 'POST'], // Allow only the methods you need
+    allowedHeaders: ['Content-Type'] // Allow only the headers you need
+  };
+  
+  app.use(cors(corsOptions));
+    
 // app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')), function(req, res, next) {
@@ -114,6 +129,8 @@ app.post('/api/orders', async (req, res) => {
         res.status(500).send({ message: 'Failed to send email' });
     }
 });
+
+app.use(express.static('public'));
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'Home.html'));
   });
