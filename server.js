@@ -114,6 +114,9 @@ app.post('/api/orders', async (req, res) => {
         res.status(500).send({ message: 'Failed to send email' });
     }
 });
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'Home.html'));
+  });
 
 app.listen(port, () => {
     console.log(`Server running at http://localhost:${port}`);
