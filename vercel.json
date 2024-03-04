@@ -1,8 +1,14 @@
 {
-    "rewrites": [
-      {
-        "source": "/(.*)",
-        "destination": "/server.js"
-      }
-    ]
-  }
+  "version": 2,
+  "env": {
+    "CUSTOM_ENV_VARIABLE": "value"
+  },
+  "builds": [{
+    "src": "server.js",
+    "use": "@vercel/node"
+  }],
+  "routes": [{
+    "src": "/api/(.*)",
+    "dest": "/api/$1.js"
+  }]
+}
