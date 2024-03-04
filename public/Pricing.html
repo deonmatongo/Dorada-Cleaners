@@ -499,7 +499,8 @@
     <meta property="og:title" content="Pricing">
     <meta property="og:type" content="website">
   <meta data-intl-tel-input-cdn-path="intlTelInput/"></head>
-  <body data-path-to-root="./" data-include-products="false" class="u-body u-xxl-mode" data-lang="en"><header class="u-clearfix u-custom-color-3 u-header u-header" id="sec-c5af"><div class="u-clearfix u-sheet u-sheet-1">
+  <body data-path-to-root="./" data-include-products="false" class="u-body u-xxl-mode" data-lang="en">
+    <header class="u-clearfix u-custom-color-3 u-header u-header" id="sec-c5af"><div class="u-clearfix u-sheet u-sheet-1">
         <nav class="u-align-right u-hidden-lg u-hidden-sm u-hidden-xl u-hidden-xxl u-menu u-menu-one-level u-offcanvas u-menu-1">
           <div class="menu-collapse" style="font-size: 1rem; letter-spacing: 0px;">
             <a class="u-button-style u-custom-left-right-menu-spacing u-custom-padding-bottom u-custom-text-active-color u-custom-text-hover-color u-custom-top-bottom-menu-spacing u-nav-link u-text-active-palette-1-base u-text-hover-palette-2-base" href="#">
@@ -651,6 +652,15 @@
   </div>
 </div>
 <div class="containerone">
+    <header>
+        <div class="title">Office Cleaning </div>
+    </header>
+    <div class="listHouseProduct">
+        <!-- Office cleaning products will be added here dynamically -->
+        <p>We also Specialise in office cleaning. Get in touch with use</p>
+    </div>
+  </div>
+<div class="containerone">
   <header>
       <div class="title">Dry Cleaning </div>
   </header>
@@ -745,6 +755,7 @@
  document.addEventListener('DOMContentLoaded', function() {
   let listProductHTML = document.querySelector('.listProduct');
   let listOfficeProductHTML = document.querySelector('.listOfficeProduct');
+  let listHouseProductHTML = document.querySelector('.listHouseProduct');
   let listDryCleaningHTML = document.querySelector('.listDryCleaning');
   let listExtrasHTML = document.querySelector('.listExtras');
   let listCartHTML = document.querySelector('.listCart');
@@ -778,6 +789,8 @@
                   listProductHTML.appendChild(newProduct);
               } else if(product.category === "office") {
                   listOfficeProductHTML.appendChild(newProduct);
+              } else if(product.category === "house") {
+                  listHouseProductHTML.appendChild(newProduct);
               } else if(product.category === "dryCleaning") {
                   listDryCleaningHTML.appendChild(newProduct);
               } else if(product.category === "extras") {
