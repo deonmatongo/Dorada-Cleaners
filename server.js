@@ -9,25 +9,7 @@ const port = process.env.PORT || 8000;
 const cors = require('cors');
 
 
-app.use(cors()); // This will enable CORS for all routes
-
-app.use(cors({
-    origin: [
-        'https://localhost:8000', // Add this line to allow requests from your local development server
-        'https://dinastiadorada.com.pl',
-        'https://www.dinastiadorada.com.pl',
-        
-    ],
-    credentials: true, // You might need this line if you're sending cookies or using session authentication
-    methods: ['GET', 'POST'], // Ensure you allow the HTTP methods you are using
-}));
-const corsOptions = {
-    origin: 'https://localhost:8000', // or use '*' to allow any origin - not recommended for production
-    methods: ['GET', 'POST'], // Allow only the methods you need
-    allowedHeaders: ['Content-Type'] // Allow only the headers you need
-  };
-  
-  app.use(cors(corsOptions));
+app.use(cors()); 
 
 // app.use(cors());
 app.use(bodyParser.json());
