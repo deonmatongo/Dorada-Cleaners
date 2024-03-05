@@ -12,22 +12,22 @@ const port = process.env.PORT || 8000;
 
 app.use(cors({
     origin: [
-        'http://localhost:8000', // Add this line to allow requests from your local development server
-        'http://dinastiadorada.com.pl',
-        'http://www.dinastiadorada.com.pl',
-        'https://dorada-cleaners.vercel.app'
+        'https://localhost:8000', // Add this line to allow requests from your local development server
+        'https://dinastiadorada.com.pl',
+        'https://www.dinastiadorada.com.pl',
+        
     ],
     credentials: true, // You might need this line if you're sending cookies or using session authentication
     methods: ['GET', 'POST'], // Ensure you allow the HTTP methods you are using
 }));
 const corsOptions = {
-    origin: 'http://localhost:8000', // or use '*' to allow any origin - not recommended for production
+    origin: 'https://localhost:8000', // or use '*' to allow any origin - not recommended for production
     methods: ['GET', 'POST'], // Allow only the methods you need
     allowedHeaders: ['Content-Type'] // Allow only the headers you need
   };
   
   app.use(cors(corsOptions));
-    
+
 // app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')), function(req, res, next) {
@@ -136,5 +136,5 @@ app.get('*', (req, res) => {
   });
 
 app.listen(port, () => {
-    console.log(`Server running at http://localhost:${port}`);
+    console.log(`Server running at https://localhost:${port}`);
 });
