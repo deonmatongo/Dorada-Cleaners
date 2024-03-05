@@ -957,9 +957,13 @@
 
           closeCheckoutModal();
       })
-      .catch(error => {
-          console.error('There was an error submitting the order', error);
-      });
+      submitOrder()
+    .then((response) => {
+        console.log('Order submitted successfully', response);
+    })
+    .catch((error) => {
+        console.error('There was an error submitting the order', error);
+    });
 
 });
 
