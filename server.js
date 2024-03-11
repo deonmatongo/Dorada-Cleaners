@@ -8,10 +8,7 @@ const app = express();
 const port = process.env.PORT || 8000;
 const cors = require('cors');
 
-
-app.use(cors()); 
-
-// app.use(cors());
+app.use(cors());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')), function(req, res, next) {
     console.log('Serving static files:', req.path);
@@ -26,8 +23,6 @@ app.get('/request-quote', (req, res) => {
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'Home.html'));
 });
-
-
 
 // Endpoint to handle form submission
 app.post('/submit', async (req, res) => {
@@ -68,11 +63,10 @@ Disclaimer Accepted: ${disclaimer ? 'Yes' : 'No'}`
             res.status(500).json({ message: 'Error sending email', error: error.toString() });
         } else {
             console.log('Email sent: ' + info.response);
-            res.json({ message: 'Form submitted successfully' });
+            res.json({ message: 'Form submitted successfully' }); // This line confirms the success to the client
         }
     });
 });
-
   
 
 
