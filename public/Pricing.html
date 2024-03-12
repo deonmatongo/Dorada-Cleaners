@@ -235,6 +235,116 @@
            overflow: auto;
        }
        .listCart::-webkit-scrollbar{
+           width: 0;} 
+/* cart */
+@media only screen and (max-width: 768px) {
+    .cartTab {
+        width: 400px;
+        background-color: #353432;
+        color: #eee;
+        position: fixed;
+        top: 0;
+        right: -400px;
+        bottom: 0;
+        display: grid;
+        grid-template-rows: 70px 1fr 70px;
+        transition: .5s;
+        font-size: small;
+        z-index: 101;
+    }
+
+    body.showCart .cartTab {
+        right: 0;
+    }
+
+    body.showCart .containerone {
+        transform: translateX(-250px);
+        z-index: 100;
+    }
+
+    .cartTab .total {
+        display: flex;
+        justify-content: space-between;
+        padding: 0 20px;
+        font-size: medium;
+        border-top: 1px solid #eee;
+        background-color: #353432;
+        color: #fff;
+    }
+
+    .cartTab .total span {
+        color: #fff;
+    }
+
+    .cartTab h1 {
+        padding: 20px;
+        margin: 0;
+        font-weight: 100;
+        font-size: 28px;
+    }
+
+    .cartTab .btn {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cartTab button {
+        background-color: #574822;
+        border: none;
+        font-family: "Your Font Family";
+        font-weight: 500;
+        cursor: pointer;
+        color: #fff;
+        height: 50px;
+    }
+
+    .cartTab .close {
+        background-color: #eee;
+        color: #000;
+    }
+
+    .listCart .item img {
+        width: 100%;
+    }
+
+    .listCart .item {
+        display: grid;
+        grid-template-columns: 70px 150px 50px 1fr;
+        gap: 10px;
+        text-align: center;
+        align-items: center;
+        margin-left: 10px;
+    }
+
+    .listCart .quantity span {
+        display: inline-block;
+        width: 5px;
+        height: 5px;
+        background-color: #eee;
+        border-radius: 50%;
+        color: #574822;
+        cursor: pointer;
+    }
+
+    .listCart .quantity span:nth-child(2) {
+        background-color: transparent;
+        color: #eee;
+        cursor: auto;
+    }
+
+    .listCart .item:nth-child(even) {
+        background-color: #eee1;
+    }
+
+    .listCart {
+        overflow: auto;
+    }
+
+    .listCart::-webkit-scrollbar {
+        width: 0;
+    }
+}
+       .listCart::-webkit-scrollbar{
            width: 0;
        }
        @media only screen and (max-width: 992px) {
@@ -306,7 +416,62 @@
                grid-template-columns: repeat(2, 1fr);
            }
        }
-       
+       .listHouseProduct .item img {
+    width: 90%;
+    height: 40%;
+}
+
+.listHouseProduct {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.listHouseProduct .item {
+    background-color: #EEEEE6;
+    padding: 20px;
+    border-radius: none;
+}
+
+.listHouseProduct .item h2 {
+    font-weight: 500;
+    font-size: small;
+}
+
+.listHouseProduct .item .price {
+    letter-spacing: 7px;
+    font-size: small;
+}
+
+.listHouseProduct .item button {
+    background-color: #574822;
+    color: #eee;
+    border: none;
+    padding: 5px 10px;
+    margin-top: 10px;
+    border-radius: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    position: relative;
+}
+
+.listHouseProduct .item button:hover {
+    background-color: #6d5f47;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 992px) {
+    .listHouseProduct {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .listHouseProduct {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
        .listDryCleaning .item img,
        .listExtras .item img {
            width: 90%;
@@ -482,6 +647,73 @@
        width: 80%; /* More width on smaller screens */
    }
 }
+body{
+  margin: 0;
+}
+.totalSection {
+    position: sticky;
+    top: 0;
+    background-color: #353432; /* Brown background color */
+    color: white;
+    padding: 20px;
+    text-align: center;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.5s ease;
+margin-right: 10%;
+margin-left: 10%;
+    }
+    
+    .totalSection div {
+    text-align: left; /* Adjust the text alignment as needed */
+    margin-left: 25%;
+    font-weight: 600;
+    font-size: 22px;
+}
+    .icon-cart {
+      display: flex;
+      align-items: center;
+      color: white;
+      cursor: pointer;
+      margin-right: 25%;
+    }
+
+    .icon-cart svg {
+      margin-right: 5px;
+    }
+
+    .containerone {
+      margin-top: 50px; /* Adjust as needed */
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    body.showCart .totalSection {
+    transform: translateX(-15%); /* Match the transformation when the cart is open */
+}/* Media Query for Small Screens (up to 768px) */
+@media only screen and (max-width: 768px) {
+    .totalSection {
+      flex-direction: column; /* Stack items vertically on small screens */
+      text-align: center;
+      width: 100%;
+    }
+
+    .totalSection div {
+      margin: 0; /* Remove left margin for better alignment on small screens */
+      text-align: center; /* Center text on small screens */
+      font-size: 18px;
+    }
+
+    .icon-cart {
+      margin-right: 0; /* Remove right margin for better alignment on small screens */
+      margin-top: 10px; /* Add top margin for spacing */
+    }
+  }
 </style>
     
     
@@ -628,56 +860,64 @@
       <div class="u-clearfix u-sheet u-sheet-1">
         <div class="u-clearfix u-custom-html u-expanded-width u-custom-html-1">
          
-<div class="containerone">
-  <header>
-      <div class="title">Apartment Cleaning </div>
-      <div class="icon-cart">
-          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
-              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
-          </svg>
-          <span>0</span>
-      </div>
-  </header>
-  <div class="listProduct">
-      <!-- Products will be added here by JavaScript -->
-  </div>
-</div>
-
-<div class="containerone">
-  <header>
-      <div class="title">House Cleaning </div>
-  </header>
-  <div class="listOfficeProduct">
-      <!-- Office cleaning products will be added here dynamically -->
-  </div>
-</div>
-<div class="containerone">
-    <header>
-        <div class="title">Office Cleaning </div>
-    </header>
-    <div class="listHouseProduct">
-        <!-- Office cleaning products will be added here dynamically -->
-        <p>We also Specialise in office cleaning. Get in touch with use</p>
-    </div>
-  </div>
-<div class="containerone">
-  <header>
-      <div class="title">Dry Cleaning </div>
-  </header>
-  <div class="listDryCleaning">
-      <!-- Dry cleaning products will be added here dynamically -->
-  </div>
-</div>
-
-<!-- Extras Section -->
-<div class="containerone">
-  <header>
-      <div class="title">Extras </div>
-  </header>
-  <div class="listExtras">
-      <!-- Extra products will be added here dynamically -->
-  </div>
-</div>
+            <div class="totalSection" id="totalSection">
+                <div>
+                  Total: $0.00
+                </div>
+                <div class="icon-cart">
+                  <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 15a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0h8m-8 0-1-4m9 4a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm-9-4h10l2-7H3m2 7L3 4m0 0-.792-3H1"/>
+                  </svg>
+                  <span>0</span>
+                </div>
+              </div>
+              
+              <div class="containerone">
+                <header>
+                  <div class="title">Apartment Cleaning </div>
+                </header>
+                <div class="listProduct">
+                  <!-- Products will be added here by JavaScript -->
+                </div>
+              </div>
+              
+              <div class="containerone">
+                <header>
+                  <div class="title">House Cleaning </div>
+                </header>
+                <div class="listOfficeProduct">
+                  <!-- Office cleaning products will be added here dynamically -->
+                </div>
+              </div>
+              
+              <div class="containerone">
+                <header>
+                  <div class="title">Office Cleaning </div>
+                </header>
+                <div class="listHouseProduct">
+                  <!-- Office cleaning products will be added here dynamically -->
+                </div>
+              </div>
+              
+              <div class="containerone">
+                <header>
+                  <div class="title">Dry Cleaning </div>
+                </header>
+                <div class="listDryCleaning">
+                  <!-- Dry cleaning products will be added here dynamically -->
+                </div>
+              </div>
+              
+              <!-- Extras Section -->
+              <div class="containerone">
+                <header>
+                  <div class="title">Extras </div>
+                </header>
+                <div class="listExtras">
+                  <!-- Extra products will be added here dynamically -->
+                </div>
+              </div>
+              
 
 <div class="cartTab">
   <h1>Selected Products</h1>
@@ -752,269 +992,289 @@
 
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        let listProductHTML = document.querySelector('.listProduct');
-        let listOfficeProductHTML = document.querySelector('.listOfficeProduct');
-        let listHouseProductHTML = document.querySelector('.listHouseProduct');
-        let listDryCleaningHTML = document.querySelector('.listDryCleaning');
-        let listExtrasHTML = document.querySelector('.listExtras');
-        let listCartHTML = document.querySelector('.listCart');
-        let iconCart = document.querySelector('.icon-cart');
-        let iconCartSpan = document.querySelector('.icon-cart span');
-        let body = document.querySelector('body');
-        let closeCart = document.querySelector('.close');
-        let products = [];
-        let cart = [];
-        let summary = "";
-    
-        iconCart.addEventListener('click', () => {
-            body.classList.toggle('showCart');
-        });
-        closeCart.addEventListener('click', () => {
-            body.classList.toggle('showCart');
-        });
-    
-        function addDataToHTML() {
-            if (products.length > 0) {
-                products.forEach(product => {
-                    let newProduct = document.createElement('div');
-                    newProduct.dataset.id = product.id;
-                    newProduct.classList.add('item');
-                    newProduct.innerHTML = `
-                    <img src="${product.image}" alt="">
-                    <h2>${product.name}</h2>
-                    <div class="price">PLN${product.price}</div>
-                    <button class="addCart">Add To Cart</button>`;
-                    switch (product.category) {
-                        case "apartment":
-                            listProductHTML.appendChild(newProduct);
-                            break;
-                        case "office":
-                            listOfficeProductHTML.appendChild(newProduct);
-                            break;
-                        case "house":
-                            listHouseProductHTML.appendChild(newProduct);
-                            break;
-                        case "dryCleaning":
-                            listDryCleaningHTML.appendChild(newProduct);
-                            break;
-                        case "extras":
-                            listExtrasHTML.appendChild(newProduct);
-                            break;
-                    }
-                });
-            }
-        }
-    
-        // Assuming 'products.json' is your products data file
-        fetch('products.json')
-            .then(response => response.json())
-            .then(data => {
-                products = data;
-                addDataToHTML();
-    
-                if (localStorage.getItem('cart')) {
-                    cart = JSON.parse(localStorage.getItem('cart'));
-                    addCartToHTML();
-                }
-            });
-    
-        document.querySelectorAll('.listProduct, .listOfficeProduct, .listDryCleaning, .listExtras').forEach(list => {
-            list.addEventListener('click', (event) => {
-                let positionClick = event.target;
-                if (positionClick.classList.contains('addCart')) {
-                    let id_product = positionClick.parentElement.dataset.id;
-                    addToCart(id_product);
-                }
-            });
-        });
-    
-        function addToCart(product_id) {
-            let positionThisProductInCart = cart.findIndex(value => value.product_id == product_id);
-    
-            if (positionThisProductInCart < 0) {
-                cart.push({
-                    product_id: product_id,
-                    quantity: 1
-                });
-            } else {
-                cart[positionThisProductInCart].quantity++;
-            }
-    
-            addCartToHTML();
-            addCartToMemory();
-        }
-    
-        function addCartToMemory() {
-            localStorage.setItem('cart', JSON.stringify(cart));
-        }
-    
-        function addCartToHTML() {
-            listCartHTML.innerHTML = '';
-            let totalQuantity = 0;
-            let grandTotalPrice = 0;
-    
-            if (cart.length > 0) {
-                cart.forEach(item => {
-                    totalQuantity += item.quantity;
-    
-                    let positionProduct = products.findIndex(value => value.id == item.product_id);
-                    if (positionProduct < 0) return;
-    
-                    let productInfo = products[positionProduct];
-                    let itemTotalPrice = productInfo.price * item.quantity;
-                    grandTotalPrice += itemTotalPrice;
-    
-                    let newItem = document.createElement('div');
-                    newItem.classList.add('item');
-                    newItem.dataset.id = item.product_id;
-                    newItem.innerHTML = `
-                    <div class="image">
-                        <img src="${productInfo.image}" alt="${productInfo.name}">
-                    </div>
-                    <div class="name">${productInfo.name}</div>
-                    <div class="totalPrice">PLN${itemTotalPrice.toFixed(2)}</div>
-                    <div class="quantity">
-                        <button class="minus">-</button>
-                        <span>${item.quantity}</span>
-                        <button class="plus">+</button>
-                    </div>`;
-                    listCartHTML.appendChild(newItem);
-                });
-            }
-    
-            iconCartSpan.innerText = totalQuantity;
-            document.getElementById('totalPrice').innerText = grandTotalPrice.toFixed(2);
-        }
-    
-        listCartHTML.addEventListener('click', (event) => {
-            let positionClick = event.target;
-            if (positionClick.classList.contains('minus') || positionClick.classList.contains('plus')) {
-                let product_id = positionClick.closest('.item').dataset.id;
-                let type = positionClick.classList.contains('plus') ? 'plus' : 'minus';
-                changeQuantityCart(product_id, type);
-            }
-        });
-    
-        function changeQuantityCart(product_id, type) {
-            let positionItemInCart = cart.findIndex(value => value.product_id == product_id);
-            if (positionItemInCart >= 0) {
-                if (type === 'plus') {
-                    cart[positionItemInCart].quantity++;
-                } else {
-                    cart[positionItemInCart].quantity--;
-                    if (cart[positionItemInCart].quantity <= 0) cart.splice(positionItemInCart, 1);
-                }
-            }
-            addCartToHTML();
-            addCartToMemory();
-        }
-    
-        document.getElementById('sendOrder').addEventListener('click', function() {
-            const personalDetails = {
-                name: document.getElementById('name').value,
-                phone: document.getElementById('phone').value,
-                email: document.getElementById('email').value,
-                address: document.getElementById('address').value,
-                date: document.getElementById('date').value,
-                time: document.getElementById('time').value
-            };
-    
-            // Collect cart items for the order
-            const cartItems = cart.map(item => {
-                const product = products.find(p => p.id == item.product_id);
-                return {
-                    name: product.name,
-                    quantity: item.quantity,
-                    price: product.price,
-                    total: item.quantity * product.price
-                };
-            });
-    
-            // Construct the order details object
-            const orderDetails = {
-                personalDetails: personalDetails,
-                cartItems: cartItems
-            };
-    
-            axios.post('https://www.dinastiadorada.com.pl/api/orders', orderDetails)
-                .then(response => {
-                    console.log('Order submitted successfully', response);
-    
-                    // Clear form fields and cart after successful submission
-                    clearFormFields();
-                    clearCart();
-    
-                    // Display success message
-                    document.getElementById('orderSuccessModal').style.display = 'block';
-                    setTimeout(() => {
-                        document.getElementById('orderSuccessModal').style.display = 'none';
-                    }, 5000); // Auto-close the success message after 5 seconds
-                })
-                .catch(error => {
-                    console.error('There was an error submitting the order', error);
-                    alert('An error occurred while submitting your order. Please try again.');
-                });
-        });
-    
-        function clearFormFields() {
-            document.getElementById('name').value = '';
-            document.getElementById('phone').value = '';
-            document.getElementById('email').value = '';
-            document.getElementById('address').value = '';
-            document.getElementById('date').value = '';
-            document.getElementById('time').value = '';
-            // Add any other form fields you need to clear
-        }
-    
-        function clearCart() {
-            cart = []; // Clear the cart array
-            localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
-            addCartToHTML(); // Refresh the cart display
-        }
-    
-        document.querySelector('.checkOut').addEventListener('click', openCheckoutModal);
-        document.querySelector('.close-button').addEventListener('click', closeCheckoutModal);
-        document.getElementById('close').addEventListener('click', () => {
-            document.getElementById('orderSuccessModal').style.display = "none";
-        });
-        window.onclick = function(event) {
-            if (event.target == document.getElementById('orderSuccessModal')) {
-                document.getElementById('orderSuccessModal').style.display = 'none';
-            }
-        };
-    
-        document.getElementById('checkoutForm').addEventListener('submit', function(event) {
-            event.preventDefault();
-            // You can call the sendOrder click handler here if you like
-        });
-    
-        function openCheckoutModal() {
-            document.getElementById('checkoutModal').style.display = 'block';
-            populateCartSummary();
-        }
-    
-        function closeCheckoutModal() {
-            document.getElementById('checkoutModal').style.display = 'none';
-        }
-    
-        function populateCartSummary() {
-            const cartSummaryDiv = document.getElementById('cartSummary');
-            cartSummaryDiv.innerHTML = ''; // Clear current summary
+document.addEventListener('DOMContentLoaded', function () {
+    let listProductHTML = document.querySelector('.listProduct');
+    let listOfficeProductHTML = document.querySelector('.listOfficeProduct');
+    let listHouseProductHTML = document.querySelector('.listHouseProduct');
+    let listDryCleaningHTML = document.querySelector('.listDryCleaning');
+    let listExtrasHTML = document.querySelector('.listExtras');
+    let listCartHTML = document.querySelector('.listCart');
+    let iconCart = document.querySelector('.icon-cart');
+    let iconCartSpan = document.querySelector('.icon-cart span');
+    let body = document.querySelector('body');
+    let closeCart = document.querySelector('.close');
+    let products = [];
+    let cart = [];
+    let summary = "";
+
+    iconCart.addEventListener('click', () => {
+        body.classList.toggle('showCart');
+    });
+    closeCart.addEventListener('click', () => {
+        body.classList.toggle('showCart');
+    });
+
+    function updateTotalSection() {
+        let totalSection = document.querySelector('.totalSection div');
+        let total = 0;
+
+        if (cart.length > 0) {
             cart.forEach(item => {
-                const product = products.find(p => p.id == item.product_id);
-                if (!product) return; // Skip if product not found
-                const itemHtml = `
-                    <div class="cart-item">
-                        <p>Name: ${product.name}</p>
-                        <p>Quantity: ${item.quantity}</p>
-                        <p>Price: PLN${product.price.toFixed(2)}</p>
-                        <p>Total: PLN${(item.quantity * product.price).toFixed(2)}</p>
-                    </div>`;
-                cartSummaryDiv.innerHTML += itemHtml;
+                let positionProduct = products.findIndex(value => value.id == item.product_id);
+                if (positionProduct < 0) return;
+
+                let productInfo = products[positionProduct];
+                total += productInfo.price * item.quantity;
             });
+        }
+
+        totalSection.textContent = `Total: PLN${total.toFixed(2)}`;
+    }
+
+    function addDataToHTML() {
+        if (products.length > 0) {
+            products.forEach(product => {
+                let newProduct = document.createElement('div');
+                newProduct.dataset.id = product.id;
+                newProduct.classList.add('item');
+                newProduct.innerHTML = `
+                <img src="${product.image}" alt="">
+                <h2>${product.name}</h2>
+                <div class="price">PLN${product.price}</div>
+                <button class="addCart">Add To Cart</button>`;
+                switch (product.category) {
+                    case "apartment":
+                        listProductHTML.appendChild(newProduct);
+                        break;
+                    case "office":
+                        listOfficeProductHTML.appendChild(newProduct);
+                        break;
+                    case "house":
+                        listHouseProductHTML.appendChild(newProduct);
+                        break;
+                    case "dryCleaning":
+                        listDryCleaningHTML.appendChild(newProduct);
+                        break;
+                    case "extras":
+                        listExtrasHTML.appendChild(newProduct);
+                        break;
+                }
+            });
+        }
+    }
+
+    // Assuming 'products.json' is your products data file
+    fetch('products.json')
+        .then(response => response.json())
+        .then(data => {
+            products = data;
+            addDataToHTML();
+
+            if (localStorage.getItem('cart')) {
+                cart = JSON.parse(localStorage.getItem('cart'));
+                addCartToHTML();
+            }
+        });
+
+    document.querySelectorAll('.listProduct, .listOfficeProduct, .listDryCleaning, .listExtras').forEach(list => {
+        list.addEventListener('click', (event) => {
+            let positionClick = event.target;
+            if (positionClick.classList.contains('addCart')) {
+                let id_product = positionClick.parentElement.dataset.id;
+                addToCart(id_product);
+            }
+        });
+    });
+
+    function addToCart(product_id) {
+        let positionThisProductInCart = cart.findIndex(value => value.product_id == product_id);
+
+        if (positionThisProductInCart < 0) {
+            cart.push({
+                product_id: product_id,
+                quantity: 1
+            });
+        } else {
+            cart[positionThisProductInCart].quantity++;
+        }
+
+        addCartToHTML();
+        addCartToMemory();
+        updateTotalSection();
+    }
+
+    function addCartToMemory() {
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+    function addCartToHTML() {
+        listCartHTML.innerHTML = '';
+        let totalQuantity = 0;
+        let grandTotalPrice = 0;
+
+        if (cart.length > 0) {
+            cart.forEach(item => {
+                totalQuantity += item.quantity;
+
+                let positionProduct = products.findIndex(value => value.id == item.product_id);
+                if (positionProduct < 0) return;
+
+                let productInfo = products[positionProduct];
+                let itemTotalPrice = productInfo.price * item.quantity;
+                grandTotalPrice += itemTotalPrice;
+
+                let newItem = document.createElement('div');
+                newItem.classList.add('item');
+                newItem.dataset.id = item.product_id;
+                newItem.innerHTML = `
+                <div class="image">
+                    <img src="${productInfo.image}" alt="${productInfo.name}">
+                </div>
+                <div class="name">${productInfo.name}</div>
+                <div class="totalPrice">PLN${itemTotalPrice.toFixed(2)}</div>
+                <div class="quantity">
+                    <button class="minus">-</button>
+                    <span>${item.quantity}</span>
+                    <button class="plus">+</button>
+                </div>`;
+                listCartHTML.appendChild(newItem);
+            });
+        }
+
+        iconCartSpan.innerText = totalQuantity;
+        document.getElementById('totalPrice').innerText = grandTotalPrice.toFixed(2);
+        updateTotalSection();
+    }
+
+    listCartHTML.addEventListener('click', (event) => {
+        let positionClick = event.target;
+        if (positionClick.classList.contains('minus') || positionClick.classList.contains('plus')) {
+            let product_id = positionClick.closest('.item').dataset.id;
+            let type = positionClick.classList.contains('plus') ? 'plus' : 'minus';
+            changeQuantityCart(product_id, type);
         }
     });
+
+    function changeQuantityCart(product_id, type) {
+        let positionItemInCart = cart.findIndex(value => value.product_id == product_id);
+        if (positionItemInCart >= 0) {
+            if (type === 'plus') {
+                cart[positionItemInCart].quantity++;
+            } else {
+                cart[positionItemInCart].quantity--;
+                if (cart[positionItemInCart].quantity <= 0) cart.splice(positionItemInCart, 1);
+            }
+        }
+        addCartToHTML();
+        addCartToMemory();
+    }
+
+    document.getElementById('sendOrder').addEventListener('click', function () {
+        const personalDetails = {
+            name: document.getElementById('name').value,
+            phone: document.getElementById('phone').value,
+            email: document.getElementById('email').value,
+            address: document.getElementById('address').value,
+            date: document.getElementById('date').value,
+            time: document.getElementById('time').value
+        };
+
+        // Collect cart items for the order
+        const cartItems = cart.map(item => {
+            const product = products.find(p => p.id == item.product_id);
+            return {
+                name: product.name,
+                quantity: item.quantity,
+                price: product.price,
+                total: item.quantity * product.price
+            };
+        });
+
+        // Construct the order details object
+        const orderDetails = {
+            personalDetails: personalDetails,
+            cartItems: cartItems
+        };
+
+        axios.post('https://www.dinastiadorada.com.pl/api/orders', orderDetails)
+            .then(response => {
+                console.log('Order submitted successfully', response);
+
+                // Clear form fields and cart after successful submission
+                clearFormFields();
+                clearCart();
+
+                // Display success message
+                document.getElementById('orderSuccessModal').style.display = 'block';
+                setTimeout(() => {
+                    document.getElementById('orderSuccessModal').style.display = 'none';
+                }, 5000); // Auto-close the success message after 5 seconds
+            })
+            .catch(error => {
+                console.error('There was an error submitting the order', error);
+                alert('An error occurred while submitting your order. Please try again.');
+            });
+    });
+
+    function clearFormFields() {
+        document.getElementById('name').value = '';
+        document.getElementById('phone').value = '';
+        document.getElementById('email').value = '';
+        document.getElementById('address').value = '';
+        document.getElementById('date').value = '';
+        document.getElementById('time').value = '';
+        // Add any other form fields you need to clear
+    }
+
+    function clearCart() {
+        cart = []; // Clear the cart array
+        localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
+        addCartToHTML(); // Refresh the cart display
+    }
+
+    document.querySelector('.checkOut').addEventListener('click', openCheckoutModal);
+    document.querySelector('.close-button').addEventListener('click', closeCheckoutModal);
+    document.getElementById('close').addEventListener('click', () => {
+        document.getElementById('orderSuccessModal').style.display = "none";
+    });
+    window.onclick = function (event) {
+        if (event.target == document.getElementById('orderSuccessModal')) {
+            document.getElementById('orderSuccessModal').style.display = 'none';
+        }
+    };
+
+    document.getElementById('checkoutForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        // You can call the sendOrder click handler here if you like
+    });
+
+    function openCheckoutModal() {
+        document.getElementById('checkoutModal').style.display = 'block';
+        populateCartSummary();
+    }
+
+    function closeCheckoutModal() {
+        document.getElementById('checkoutModal').style.display = 'none';
+    }
+
+    function populateCartSummary() {
+        const cartSummaryDiv = document.getElementById('cartSummary');
+        cartSummaryDiv.innerHTML = ''; // Clear current summary
+        cart.forEach(item => {
+            const product = products.find(p => p.id == item.product_id);
+            if (!product) return; // Skip if product not found
+            const itemHtml = `
+                <div class="cart-item">
+                    <p>Name: ${product.name}</p>
+                    <p>Quantity: ${item.quantity}</p>
+                    <p>Price: PLN${product.price.toFixed(2)}</p>
+                    <p>Total: PLN${(item.quantity * product.price).toFixed(2)}</p>
+                </div>`;
+            cartSummaryDiv.innerHTML += itemHtml;
+        });
+    }
+});
+
     </script>
     
           <section class="call-to-action">

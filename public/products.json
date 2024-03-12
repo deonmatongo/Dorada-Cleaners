@@ -106,6 +106,13 @@
         "image": "images/window2.png"
     },
     {
+        "id": 15,
+        "category": "house",
+        "name": "House Window Cleaning",
+        "price": 40,
+        "image": "images/window2.png"
+    },
+    {
         "id": 16,
         "category": "office",
         "name": "Single Toilet  ",
