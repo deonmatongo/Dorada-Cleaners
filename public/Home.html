@@ -25,6 +25,48 @@
     <meta name="theme-color" content="#ffffff">
     
     
+    <style>
+      .cookies-popup {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        color: #fff;
+        padding: 10px;
+        text-align: center;
+        z-index: 9999;
+        font-size: small;
+      }
+    
+      .cookies-content {
+        max-width: 600px;
+        margin: 0 auto;
+        font-size: small;
+      }
+    
+      #accept-cookies-btn,
+      #decline-cookies-btn {
+        background-color: #574822;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+      }
+    
+      @media screen and (max-width: 600px) {
+        .cookies-content {
+          max-width: 90%;
+        }
+      }
+    
+      @media screen and (max-width: 400px) {
+        #accept-cookies-btn,
+        #decline-cookies-btn {
+          padding: 8px 16px;
+        }
+      }
+    </style>
     
     
     
@@ -615,7 +657,69 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
             </div>
           </div>
         </div>
-      </div></footer>
+      </div>
+      <div id="cookies-popup" class="cookies-popup">
+        <div id="cookies-popup" class="cookies-popup">
+          <div class="cookies-content">
+              <p>This website uses cookies to ensure you get the best experience on our website.</p>
+              <div class="buttons-container">
+                  <button id="accept-cookies-btn">Accept</button>
+                  <button id="decline-cookies-btn">Decline</button>
+              </div>
+          </div>
+      </div>
+      
+    </div>
+    
+    </footer>
 
-  
+  <script>document.addEventListener("DOMContentLoaded", function() {
+    var cookiesPopup = document.getElementById('cookies-popup');
+    var acceptCookiesBtn = document.getElementById('accept-cookies-btn');
+    var declineCookiesBtn = document.getElementById('decline-cookies-btn');
+
+    // Check if cookies are accepted, if not show the popup
+    if (!getCookie('cookies_accepted')) {
+        cookiesPopup.style.display = 'block';
+    }
+
+    // Function to set cookie
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
+    // Function to get cookie
+    function getCookie(cname) {
+        var name = cname + "=";
+        var decodedCookie = decodeURIComponent(document.cookie);
+        var ca = decodedCookie.split(';');
+        for (var i = 0; i < ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+            }
+            if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+            }
+        }
+        return "";
+    }
+
+    // Event listener for accept cookies button
+    acceptCookiesBtn.addEventListener('click', function() {
+        setCookie('cookies_accepted', 'true', 365); // Cookie will expire after 365 days
+        cookiesPopup.style.display = 'none';
+    });
+
+    // Event listener for decline cookies button
+    declineCookiesBtn.addEventListener('click', function() {
+        // Handle decline action, for example, redirect to a privacy policy page
+        window.location.href = 'privacy-policy.html'; // Replace with your privacy policy page URL
+    });
+});
+
+</script>
 </body></html>
