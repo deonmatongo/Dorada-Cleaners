@@ -105,13 +105,7 @@
         "price": 40,
         "image": "images/window2.png"
     },
-    {
-        "id": 15,
-        "category": "house",
-        "name": "House Window Cleaning",
-        "price": 40,
-        "image": "images/window2.png"
-    },
+ 
     {
         "id": 16,
         "category": "office",
@@ -121,7 +115,7 @@
     },
     {
         "id": 17,
-        "category": "dryCleaning",
+        "category": "house",
         "name": "Commercial Carpets (/SQM)",
         "price": 8,
         "image": "images/commercialcarpet.jpeg"
