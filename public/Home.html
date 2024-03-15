@@ -693,6 +693,14 @@ c6.177,6.18,9.262,14.271,9.262,22.366C354.708,234.018,351.617,242.115,345.441,24
         cookiesPopup.style.display = 'block';
     }
 
+    // Function to set cookie
+    function setCookie(cname, cvalue, exdays) {
+        var d = new Date();
+        d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+        var expires = "expires=" + d.toUTCString();
+        document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+    }
+
     // Event listener for accept cookies button
     acceptCookiesBtn.addEventListener('click', function() {
         setCookie('cookies_accepted', 'true', 365); // Cookie will expire after 365 days
