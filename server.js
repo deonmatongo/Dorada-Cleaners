@@ -41,8 +41,8 @@ app.post('/submit', async (req, res) => {
 
     // Email options
     let mailOptions = {
-        from: 'danielngwerewe@dinastiadorada.com.pl', // Sender address
-        to: 'danielngwerewe@dinastiadorada.com.pl', // List of recipients
+        from: 'info@doradacleaners.pl', // Sender address
+        to: 'info@doradacleaners.pl', // List of recipients
         subject: 'New Form Submission', // Subject line
         text: `Form submission details:
 Name: ${name}
@@ -94,8 +94,8 @@ app.post('/api/orders', async (req, res) => {
     // Send email using the provided details
     try {
         await transporter.sendMail({
-            from: '"Dorada" <danielngwerewe@dinastiadorada.com.pl', // sender address
-            to: "danielngwerewe@dinastiadorada.com.pl", // list of receivers, using the same address for simplicity
+            from: '"Dorada" <info@doradacleaners.pl', // sender address
+            to: "info@doradacleaners.pl", // list of receivers, using the same address for simplicity
             subject: "Order Summary", // Subject line
             text: emailText, // plain text body
         });
