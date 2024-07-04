@@ -995,289 +995,255 @@ margin-left: 10%;
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-    let listProductHTML = document.querySelector('.listProduct');
-    let listOfficeProductHTML = document.querySelector('.listOfficeProduct');
-    let listHouseProductHTML = document.querySelector('.listHouseProduct');
-    let listDryCleaningHTML = document.querySelector('.listDryCleaning');
-    let listExtrasHTML = document.querySelector('.listExtras');
-    let listCartHTML = document.querySelector('.listCart');
-    let iconCart = document.querySelector('.icon-cart');
-    let iconCartSpan = document.querySelector('.icon-cart span');
-    let body = document.querySelector('body');
-    let closeCart = document.querySelector('.close');
-    let products = [];
-    let cart = [];
-    let summary = "";
+    document.addEventListener('DOMContentLoaded', function () {
+        let listProductHTML = document.querySelector('.listProduct');
+        let listOfficeProductHTML = document.querySelector('.listOfficeProduct');
+        let listHouseProductHTML = document.querySelector('.listHouseProduct');
+        let listDryCleaningHTML = document.querySelector('.listDryCleaning');
+        let listExtrasHTML = document.querySelector('.listExtras');
+        let listCartHTML = document.querySelector('.listCart');
+        let iconCart = document.querySelector('.icon-cart');
+        let iconCartSpan = document.querySelector('.icon-cart span');
+        let body = document.querySelector('body');
+        let closeCart = document.querySelector('.close');
+        let products = [];
+        let cart = [];
+        let summary = "";
 
-    iconCart.addEventListener('click', () => {
-        body.classList.toggle('showCart');
-    });
-    closeCart.addEventListener('click', () => {
-        body.classList.toggle('showCart');
-    });
+        iconCart.addEventListener('click', () => {
+            body.classList.toggle('showCart');
+        });
+        closeCart.addEventListener('click', () => {
+            body.classList.toggle('showCart');
+        });
 
-    function updateTotalSection() {
-        let totalSection = document.querySelector('.totalSection div');
-        let total = 0;
+        function updateTotalSection() {
+            let totalSection = document.querySelector('.totalSection div');
+            let total = 0;
 
-        if (cart.length > 0) {
-            cart.forEach(item => {
-                let positionProduct = products.findIndex(value => value.id == item.product_id);
-                if (positionProduct < 0) return;
+            if (cart.length > 0) {
+                cart.forEach(item => {
+                    let positionProduct = products.findIndex(value => value.id == item.product_id);
+                    if (positionProduct < 0) return;
 
-                let productInfo = products[positionProduct];
-                total += productInfo.price * item.quantity;
-            });
+                    let productInfo = products[positionProduct];
+                    total += productInfo.price * item.quantity;
+                });
+            }
+
+            totalSection.textContent = `Total: PLN${total.toFixed(2)}`;
         }
 
-        totalSection.textContent = `Total: PLN${total.toFixed(2)}`;
-    }
+        function addDataToHTML() {
+            if (products.length > 0) {
+                products.forEach(product => {
+                    let newProduct = document.createElement('div');
+                    newProduct.dataset.id = product.id;
+                    newProduct.classList.add('item');
+                    newProduct.innerHTML = `
+                    <img src="${product.image}" alt="">
+                    <h2>${product.name}</h2>
+                    <div class="price">PLN${product.price}</div>
+                    <button class="addCart">Add To Cart</button>`;
+                    switch (product.category) {
+                        case "apartment":
+                            listProductHTML.appendChild(newProduct);
+                            break;
+                        case "office":
+                            listOfficeProductHTML.appendChild(newProduct);
+                            break;
+                        case "house":
+                            listHouseProductHTML.appendChild(newProduct);
+                            break;
+                        case "dryCleaning":
+                            listDryCleaningHTML.appendChild(newProduct);
+                            break;
+                        case "extras":
+                            listExtrasHTML.appendChild(newProduct);
+                            break;
+                    }
+                });
+            }
+        }
 
-    function addDataToHTML() {
-        if (products.length > 0) {
-            products.forEach(product => {
-                let newProduct = document.createElement('div');
-                newProduct.dataset.id = product.id;
-                newProduct.classList.add('item');
-                newProduct.innerHTML = `
-                <img src="${product.image}" alt="">
-                <h2>${product.name}</h2>
-                <div class="price">PLN${product.price}</div>
-                <button class="addCart">Add To Cart</button>`;
-                switch (product.category) {
-                    case "apartment":
-                        listProductHTML.appendChild(newProduct);
-                        break;
-                    case "office":
-                        listOfficeProductHTML.appendChild(newProduct);
-                        break;
-                    case "house":
-                        listHouseProductHTML.appendChild(newProduct);
-                        break;
-                    case "dryCleaning":
-                        listDryCleaningHTML.appendChild(newProduct);
-                        break;
-                    case "extras":
-                        listExtrasHTML.appendChild(newProduct);
-                        break;
+        fetch('products.json')
+            .then(response => response.json())
+            .then(data => {
+                products = data;
+                addDataToHTML();
+
+                if (localStorage.getItem('cart')) {
+                    cart = JSON.parse(localStorage.getItem('cart'));
+                    addCartToHTML();
                 }
             });
-        }
-    }
 
-    // Assuming 'products.json' is your products data file
-    fetch('products.json')
-        .then(response => response.json())
-        .then(data => {
-            products = data;
-            addDataToHTML();
-
-            if (localStorage.getItem('cart')) {
-                cart = JSON.parse(localStorage.getItem('cart'));
-                addCartToHTML();
-            }
+        document.querySelectorAll('.listProduct, .listOfficeProduct, .listHouseProduct, .listDryCleaning, .listExtras').forEach(list => {
+            list.addEventListener('click', (event) => {
+                let positionClick = event.target;
+                if (positionClick.classList.contains('addCart')) {
+                    let id_product = positionClick.parentElement.dataset.id;
+                    addToCart(id_product);
+                }
+            });
         });
 
-    document.querySelectorAll('.listProduct, .listOfficeProduct, .listHouseProduct, .listDryCleaning, .listExtras').forEach(list => {
-        list.addEventListener('click', (event) => {
-            let positionClick = event.target;
-            if (positionClick.classList.contains('addCart')) {
-                let id_product = positionClick.parentElement.dataset.id;
-                addToCart(id_product);
-            }
-        });
-    });
+        function addToCart(product_id) {
+            let positionThisProductInCart = cart.findIndex(value => value.product_id == product_id);
 
-    function addToCart(product_id) {
-        let positionThisProductInCart = cart.findIndex(value => value.product_id == product_id);
-
-        if (positionThisProductInCart < 0) {
-            cart.push({
-                product_id: product_id,
-                quantity: 1
-            });
-        } else {
-            cart[positionThisProductInCart].quantity++;
-        }
-
-        addCartToHTML();
-        addCartToMemory();
-        updateTotalSection();
-    }
-
-    function addCartToMemory() {
-        localStorage.setItem('cart', JSON.stringify(cart));
-    }
-
-    function addCartToHTML() {
-        listCartHTML.innerHTML = '';
-        let totalQuantity = 0;
-        let grandTotalPrice = 0;
-
-        if (cart.length > 0) {
-            cart.forEach(item => {
-                totalQuantity += item.quantity;
-
-                let positionProduct = products.findIndex(value => value.id == item.product_id);
-                if (positionProduct < 0) return;
-
-                let productInfo = products[positionProduct];
-                let itemTotalPrice = productInfo.price * item.quantity;
-                grandTotalPrice += itemTotalPrice;
-
-                let newItem = document.createElement('div');
-                newItem.classList.add('item');
-                newItem.dataset.id = item.product_id;
-                newItem.innerHTML = `
-                <div class="image">
-                    <img src="${productInfo.image}" alt="${productInfo.name}">
-                </div>
-                <div class="name">${productInfo.name}</div>
-                <div class="totalPrice">PLN${itemTotalPrice.toFixed(2)}</div>
-                <div class="quantity">
-                    <button class="minus">-</button>
-                    <span>${item.quantity}</span>
-                    <button class="plus">+</button>
-                </div>`;
-                listCartHTML.appendChild(newItem);
-            });
-        }
-
-        iconCartSpan.innerText = totalQuantity;
-        document.getElementById('totalPrice').innerText = grandTotalPrice.toFixed(2);
-        updateTotalSection();
-    }
-
-    listCartHTML.addEventListener('click', (event) => {
-        let positionClick = event.target;
-        if (positionClick.classList.contains('minus') || positionClick.classList.contains('plus')) {
-            let product_id = positionClick.closest('.item').dataset.id;
-            let type = positionClick.classList.contains('plus') ? 'plus' : 'minus';
-            changeQuantityCart(product_id, type);
-        }
-    });
-
-    function changeQuantityCart(product_id, type) {
-        let positionItemInCart = cart.findIndex(value => value.product_id == product_id);
-        if (positionItemInCart >= 0) {
-            if (type === 'plus') {
-                cart[positionItemInCart].quantity++;
+            if (positionThisProductInCart < 0) {
+                cart.push({
+                    product_id: product_id,
+                    quantity: 1
+                });
             } else {
-                cart[positionItemInCart].quantity--;
-                if (cart[positionItemInCart].quantity <= 0) cart.splice(positionItemInCart, 1);
+                cart[positionThisProductInCart].quantity++;
             }
+
+            addCartToHTML();
+            addCartToMemory();
+            updateTotalSection();
         }
-        addCartToHTML();
-        addCartToMemory();
-    }
 
-    document.getElementById('sendOrder').addEventListener('click', function () {
-        const personalDetails = {
-            name: document.getElementById('name').value,
-            phone: document.getElementById('phone').value,
-            email: document.getElementById('email').value,
-            address: document.getElementById('address').value,
-            date: document.getElementById('date').value,
-            time: document.getElementById('time').value
-        };
+        function addCartToMemory() {
+            localStorage.setItem('cart', JSON.stringify(cart));
+        }
 
-        // Collect cart items for the order
-        const cartItems = cart.map(item => {
-            const product = products.find(p => p.id == item.product_id);
-            return {
-                name: product.name,
-                quantity: item.quantity,
-                price: product.price,
-                total: item.quantity * product.price
+        function addCartToHTML() {
+            listCartHTML.innerHTML = '';
+            let totalQuantity = 0;
+            let grandTotalPrice = 0;
+
+            if (cart.length > 0) {
+                cart.forEach(item => {
+                    totalQuantity += item.quantity;
+
+                    let positionProduct = products.findIndex(value => value.id == item.product_id);
+                    if (positionProduct < 0) return;
+
+                    let productInfo = products[positionProduct];
+                    let itemTotalPrice = productInfo.price * item.quantity;
+                    grandTotalPrice += itemTotalPrice;
+
+                    let newItem = document.createElement('div');
+                    newItem.classList.add('item');
+                    newItem.dataset.id = item.product_id;
+                    newItem.innerHTML = `
+                    <div class="image">
+                        <img src="${productInfo.image}" alt="${productInfo.name}">
+                    </div>
+                    <div class="name">${productInfo.name}</div>
+                    <div class="totalPrice">PLN${itemTotalPrice.toFixed(2)}</div>
+                    <div class="quantity">
+                        <button class="minus">-</button>
+                        <span>${item.quantity}</span>
+                        <button class="plus">+</button>
+                    </div>`;
+                    listCartHTML.appendChild(newItem);
+                });
+            }
+
+            iconCartSpan.innerText = totalQuantity;
+            document.getElementById('totalPrice').innerText = grandTotalPrice.toFixed(2);
+            updateTotalSection();
+        }
+
+        listCartHTML.addEventListener('click', (event) => {
+            let positionClick = event.target;
+            if (positionClick.classList.contains('minus') || positionClick.classList.contains('plus')) {
+                let product_id = positionClick.closest('.item').dataset.id;
+                let type = positionClick.classList.contains('plus') ? 'plus' : 'minus';
+                changeQuantityCart(product_id, type);
+            }
+        });
+
+        function changeQuantityCart(product_id, type) {
+            let positionItemInCart = cart.findIndex(value => value.product_id == product_id);
+            if (positionItemInCart >= 0) {
+                if (type === 'plus') {
+                    cart[positionItemInCart].quantity++;
+                } else {
+                    cart[positionItemInCart].quantity--;
+                    if (cart[positionItemInCart].quantity <= 0) cart.splice(positionItemInCart, 1);
+                }
+            }
+            addCartToHTML();
+            addCartToMemory();
+        }
+
+        document.getElementById('sendOrder').addEventListener('click', function (event) {
+            event.preventDefault();
+
+            const personalDetails = {
+                name: document.getElementById('name').value,
+                phone: document.getElementById('phone').value,
+                email: document.getElementById('email').value,
+                address: document.getElementById('address').value,
+                date: document.getElementById('date').value,
+                time: document.getElementById('time').value
             };
-        });
 
-        // Construct the order details object
-        const orderDetails = {
-            personalDetails: personalDetails,
-            cartItems: cartItems
-        };
-
-        axios.post('https://www.dinastiadorada.com.pl/api/orders', orderDetails)
-            .then(response => {
-                console.log('Order submitted successfully', response);
-
-                // Clear form fields and cart after successful submission
-                clearFormFields();
-                clearCart();
-
-                // Display success message
-                document.getElementById('orderSuccessModal').style.display = 'block';
-                setTimeout(() => {
-                    document.getElementById('orderSuccessModal').style.display = 'none';
-                }, 5000); // Auto-close the success message after 5 seconds
-            })
-            .catch(error => {
-                console.error('There was an error submitting the order', error);
-                alert('An error occurred while submitting your order. Please try again.');
+            const cartItems = cart.map(item => {
+                const product = products.find(p => p.id == item.product_id);
+                return {
+                    name: product.name,
+                    quantity: item.quantity,
+                    price: product.price,
+                    total: item.quantity * product.price
+                };
             });
-    });
 
-    function clearFormFields() {
-        document.getElementById('name').value = '';
-        document.getElementById('phone').value = '';
-        document.getElementById('email').value = '';
-        document.getElementById('address').value = '';
-        document.getElementById('date').value = '';
-        document.getElementById('time').value = '';
-        // Add any other form fields you need to clear
-    }
+            const orderDetails = {
+                personalDetails: personalDetails,
+                cartItems: cartItems
+            };
 
-    function clearCart() {
-        cart = []; // Clear the cart array
-        localStorage.setItem('cart', JSON.stringify(cart)); // Update localStorage
-        addCartToHTML(); // Refresh the cart display
-    }
+            axios.post('/api/orders', orderDetails)
+                .then(response => {
+                    console.log('Order submitted successfully', response);
 
-    document.querySelector('.checkOut').addEventListener('click', openCheckoutModal);
-    document.querySelector('.close-button').addEventListener('click', closeCheckoutModal);
-    document.getElementById('close').addEventListener('click', () => {
-        document.getElementById('orderSuccessModal').style.display = "none";
-    });
-    window.onclick = function (event) {
-        if (event.target == document.getElementById('orderSuccessModal')) {
-            document.getElementById('orderSuccessModal').style.display = 'none';
-        }
-    };
+                    clearFormFields();
+                    clearCart();
 
-    document.getElementById('checkoutForm').addEventListener('submit', function (event) {
-        event.preventDefault();
-        // You can call the sendOrder click handler here if you like
-    });
-
-    function openCheckoutModal() {
-        document.getElementById('checkoutModal').style.display = 'block';
-        populateCartSummary();
-    }
-
-    function closeCheckoutModal() {
-        document.getElementById('checkoutModal').style.display = 'none';
-    }
-
-    function populateCartSummary() {
-        const cartSummaryDiv = document.getElementById('cartSummary');
-        cartSummaryDiv.innerHTML = ''; // Clear current summary
-        cart.forEach(item => {
-            const product = products.find(p => p.id == item.product_id);
-            if (!product) return; // Skip if product not found
-            const itemHtml = `
-                <div class="cart-item">
-                    <p>Name: ${product.name}</p>
-                    <p>Quantity: ${item.quantity}</p>
-                    <p>Price: PLN${product.price.toFixed(2)}</p>
-                    <p>Total: PLN${(item.quantity * product.price).toFixed(2)}</p>
-                </div>`;
-            cartSummaryDiv.innerHTML += itemHtml;
+                    document.getElementById('orderSuccessModal').style.display = 'block';
+                    setTimeout(() => {
+                        document.getElementById('orderSuccessModal').style.display = 'none';
+                    }, 5000);
+                })
+                .catch(error => {
+                    console.error('There was an error submitting the order', error);
+                    alert('An error occurred while submitting your order. Please try again.');
+                });
         });
-    }
-});
 
+        document.querySelector('.checkOut').addEventListener('click', () => {
+            document.getElementById('checkoutModal').style.display = 'block';
+            let cartSummary = document.getElementById('cartSummary');
+            cartSummary.innerHTML = '';
+            cart.forEach(item => {
+                const product = products.find(p => p.id == item.product_id);
+                cartSummary.innerHTML += `<p>${item.quantity} x ${product.name} - PLN${(item.quantity * product.price).toFixed(2)}</p>`;
+            });
+        });
+
+        document.querySelector('.close-button').addEventListener('click', () => {
+            document.getElementById('checkoutModal').style.display = 'none';
+        });
+
+        document.getElementById('close').addEventListener('click', () => {
+            document.getElementById('orderSuccessModal').style.display = 'none';
+        });
+
+        function clearFormFields() {
+            document.getElementById('checkoutForm').reset();
+        }
+
+        function clearCart() {
+            cart = [];
+            addCartToHTML();
+            addCartToMemory();
+        }
+    });
     </script>
     
           <section class="call-to-action">
