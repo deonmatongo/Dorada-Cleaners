@@ -27,18 +27,18 @@ app.post('/submit', async (req, res) => {
     let { name, phone, email, postcode, service, date, time, info, disclaimer } = req.body;
     
     let transporter = nodemailer.createTransport({
-        host: "serwer2410538.home.pl",
-        port: 587,
-        secure: false,
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
         auth: {
             user: process.env.EMAIL,
             pass: process.env.PASSWORD
-        },
+        }
     });
 
     let mailOptions = {
-        from: 'info@doradacleaners.pl',
-        to: 'info@doradacleaners.pl',
+        from: process.env.EMAIL,
+        to: process.env.EMAIL,
         subject: 'New Form Submission',
         text: `Form submission details:
 Name: ${name}
@@ -64,6 +64,7 @@ Disclaimer Accepted: ${disclaimer ? 'Yes' : 'No'}`
 });
 
 app.post('/api/orders', async (req, res) => {
+    console.log("Received order submission: ", req.body);
     const { personalDetails, cartItems } = req.body;
 
     let emailText = `Order Summary:\n\nPersonal Details:\nName: ${personalDetails.name}\nPhone: ${personalDetails.phone}\nEmail: ${personalDetails.email}\nAddress: ${personalDetails.address}\nDate: ${personalDetails.date}\nTime: ${personalDetails.time}\n\nOrder Details:\n`;
@@ -73,19 +74,20 @@ app.post('/api/orders', async (req, res) => {
     });
 
     let transporter = nodemailer.createTransport({
-        host: "serwer2410538.home.pl",
-        port: 587,
-        secure: false,
+        host: 'smtp.gmail.com',
+        port: 465,
+        secure: true,
         auth: {
             user: process.env.EMAIL,
             pass: process.env.PASSWORD
-        },
+        }
+        
     });
 
     try {
         await transporter.sendMail({
-            from: '"Dorada" <info@doradacleaners.pl>',
-            to: "info@doradacleaners.pl",
+            from: `"Dorada" <${process.env.EMAIL}>`,
+            to: process.env.EMAIL,
             subject: "Order Summary",
             text: emailText,
         });
